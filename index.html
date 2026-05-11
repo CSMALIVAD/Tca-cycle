@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -180,14 +181,11 @@ z-index:20;
 }
 
 .node:hover{
-
-transform:
-scale(1.08);
+transform:scale(1.08);
 
 box-shadow:
 0 0 30px rgba(255,255,255,0.45),
 0 0 55px rgba(59,130,246,0.8);
-
 }
 
 /* COLORS */
@@ -469,63 +467,40 @@ Condenses with Oxaloacetate to initiate the Citric Acid Cycle and ATP generation
 <div class="energy fadh">FADH₂</div>
 <div class="energy n3">NADH</div>
 
-<!-- POPUP -->
-
-<div class="popup" id="popup">
-
-<h2 id="title"></h2>
-
-<p>
-<b>Enzyme:</b>
-<span id="enzyme"></span>
-</p>
-
-<p>
-<b>Reaction:</b>
-<span id="reaction"></span>
-</p>
-
-<p>
-<b>Products:</b>
-<span id="products"></span>
-</p>
-
-<p>
-<b>Important Notes:</b>
-<span id="notes"></span>
-</p>
-
-</div>
-
 </div>
 
 <script>
 
 window.onload = function(){
 
-const popup =
-document.getElementById("popup");
-
 const centerX = 900;
 const centerY = 900;
 
 const metaboliteRadius = 620;
 const enzymeRadius = 760;
-const cofactorRadius = 860;
+const cofactorRadius = 900;
 
 /* METABOLITES */
 
 const metabolites = [
 
 {className:"citrate",angle:-90},
-{className:"aconitate",angle:-50},
-{className:"isocitrate",angle:-10},
-{className:"akg",angle:35},
-{className:"succinyl",angle:75},
-{className:"succinate",angle:120},
-{className:"fumarate",angle:165},
-{className:"malate",angle:215},
-{className:"oxaloacetate",angle:260}
+
+{className:"aconitate",angle:-45},
+
+{className:"isocitrate",angle:-5},
+
+{className:"akg",angle:40},
+
+{className:"succinyl",angle:85},
+
+{className:"succinate",angle:130},
+
+{className:"fumarate",angle:175},
+
+{className:"malate",angle:220},
+
+{className:"oxaloacetate",angle:265}
 
 ];
 
@@ -533,15 +508,23 @@ const metabolites = [
 
 const enzymes = [
 
-{className:"e1",angle:-70},
-{className:"e2",angle:-30},
-{className:"e3",angle:12},
-{className:"e4",angle:55},
-{className:"e5",angle:95},
-{className:"e6",angle:145},
-{className:"e7",angle:190},
-{className:"e8",angle:240},
-{className:"e9",angle:285}
+{className:"e1",angle:-68},
+
+{className:"e2",angle:-25},
+
+{className:"e3",angle:18},
+
+{className:"e4",angle:63},
+
+{className:"e5",angle:108},
+
+{className:"e6",angle:152},
+
+{className:"e7",angle:198},
+
+{className:"e8",angle:243},
+
+{className:"e9",angle:288}
 
 ];
 
@@ -549,15 +532,19 @@ const enzymes = [
 
 const cofactors = [
 
-{className:"n1",angle:18},
-{className:"n2",angle:58},
-{className:"gtp",angle:105},
-{className:"fadh",angle:155},
-{className:"n3",angle:230}
+{className:"n1",angle:20},
+
+{className:"n2",angle:65},
+
+{className:"gtp",angle:115},
+
+{className:"fadh",angle:160},
+
+{className:"n3",angle:235}
 
 ];
 
-/* PLACE METABOLITES */
+/* POSITION METABOLITES */
 
 metabolites.forEach(item=>{
 
@@ -566,24 +553,26 @@ item.angle * Math.PI/180;
 
 const x =
 centerX +
-metaboliteRadius * Math.cos(rad);
+metaboliteRadius *
+Math.cos(rad);
 
 const y =
 centerY +
-metaboliteRadius * Math.sin(rad);
+metaboliteRadius *
+Math.sin(rad);
 
-const element =
+const el =
 document.querySelector("." + item.className);
 
-element.style.left =
+el.style.left =
 (x - 115) + "px";
 
-element.style.top =
+el.style.top =
 (y - 55) + "px";
 
 });
 
-/* PLACE ENZYMES */
+/* POSITION ENZYMES */
 
 enzymes.forEach(item=>{
 
@@ -592,24 +581,26 @@ item.angle * Math.PI/180;
 
 const x =
 centerX +
-enzymeRadius * Math.cos(rad);
+enzymeRadius *
+Math.cos(rad);
 
 const y =
 centerY +
-enzymeRadius * Math.sin(rad);
+enzymeRadius *
+Math.sin(rad);
 
-const element =
+const el =
 document.querySelector("." + item.className);
 
-element.style.left =
-(x - 80) + "px";
+el.style.left =
+(x - 70) + "px";
 
-element.style.top =
+el.style.top =
 (y - 20) + "px";
 
 });
 
-/* PLACE COFACTORS */
+/* POSITION COFACTORS */
 
 cofactors.forEach(item=>{
 
@@ -618,38 +609,39 @@ item.angle * Math.PI/180;
 
 const x =
 centerX +
-cofactorRadius * Math.cos(rad);
+cofactorRadius *
+Math.cos(rad);
 
 const y =
 centerY +
-cofactorRadius * Math.sin(rad);
+cofactorRadius *
+Math.sin(rad);
 
-const element =
+const el =
 document.querySelector("." + item.className);
 
-element.style.left =
-(x - 60) + "px";
+el.style.left =
+(x - 55) + "px";
 
-element.style.top =
+el.style.top =
 (y - 20) + "px";
 
 });
 
-/* SVG TRUE ARCS */
+/* TRUE SVG ARCS */
 
 const svg =
 document.querySelector("svg");
 
-const total =
-metabolites.length;
-
-for(let i=0;i<total;i++){
+for(let i=0;i<metabolites.length;i++){
 
 const start =
 metabolites[i];
 
 const end =
-metabolites[(i+1)%total];
+metabolites[
+(i+1)%metabolites.length
+];
 
 const startRad =
 start.angle * Math.PI/180;
@@ -709,3 +701,4 @@ svg.appendChild(path);
 </body>
 
 </html>
+
