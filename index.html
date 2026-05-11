@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Interactive Citric Acid Cycle</title>
 
 <style>
@@ -14,33 +16,43 @@ box-sizing:border-box;
 }
 
 body{
-background:#ffffff;
 font-family:Arial,sans-serif;
+background:
+radial-gradient(circle at top,#1e3a8a,#020617 65%);
 overflow-x:auto;
-color:#111;
+color:white;
 }
+
+/* Top */
 
 h1{
 text-align:center;
-font-size:42px;
+font-size:48px;
 margin-top:20px;
-font-weight:700;
+font-weight:800;
+background:linear-gradient(90deg,#38bdf8,#a78bfa,#22c55e);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
 
 .subtitle{
 text-align:center;
-margin-top:8px;
-margin-bottom:25px;
-color:#555;
 font-size:18px;
+margin-top:10px;
+margin-bottom:20px;
+color:#cbd5e1;
 }
+
+/* Main */
 
 .wrapper{
 position:relative;
-width:1200px;
-height:1200px;
+width:1300px;
+height:1300px;
 margin:auto;
 }
+
+/* SVG */
 
 svg{
 position:absolute;
@@ -49,71 +61,276 @@ left:0;
 overflow:visible;
 }
 
+/* Circular Glow */
+
+.glow-ring{
+filter:drop-shadow(0 0 25px rgba(56,189,248,0.6));
+}
+
+/* Nodes */
+
 .node{
 position:absolute;
-width:170px;
-min-height:70px;
-background:white;
-border:2px solid #111;
-border-radius:18px;
+width:185px;
+min-height:75px;
+padding:14px;
+border-radius:22px;
 display:flex;
 align-items:center;
 justify-content:center;
 text-align:center;
-padding:12px;
+font-size:18px;
 font-weight:700;
-font-size:17px;
 cursor:pointer;
 transition:0.35s;
-box-shadow:0 8px 20px rgba(0,0,0,0.12);
+backdrop-filter:blur(12px);
+border:2px solid rgba(255,255,255,0.3);
+box-shadow:
+0 8px 20px rgba(0,0,0,0.25),
+0 0 18px rgba(255,255,255,0.15);
 z-index:5;
+user-select:none;
 }
 
 .node:hover{
-transform:scale(1.08);
-box-shadow:0 0 25px rgba(0,140,255,0.45);
-border-color:#0ea5e9;
+transform:scale(1.12);
+box-shadow:
+0 0 25px rgba(255,255,255,0.5),
+0 0 40px rgba(59,130,246,0.7);
 }
+
+/* Colorful Nodes */
+
+.citrate{
+background:linear-gradient(135deg,#22c55e,#16a34a);
+top:80px;
+left:560px;
+}
+
+.aconitate{
+background:linear-gradient(135deg,#06b6d4,#0891b2);
+top:210px;
+right:170px;
+}
+
+.isocitrate{
+background:linear-gradient(135deg,#3b82f6,#1d4ed8);
+top:420px;
+right:50px;
+}
+
+.akg{
+background:linear-gradient(135deg,#8b5cf6,#6d28d9);
+top:670px;
+right:70px;
+}
+
+.succinyl{
+background:linear-gradient(135deg,#ec4899,#be185d);
+bottom:280px;
+right:220px;
+}
+
+.succinate{
+background:linear-gradient(135deg,#f59e0b,#d97706);
+bottom:100px;
+left:560px;
+}
+
+.fumarate{
+background:linear-gradient(135deg,#ef4444,#b91c1c);
+bottom:280px;
+left:220px;
+}
+
+.malate{
+background:linear-gradient(135deg,#14b8a6,#0f766e);
+top:670px;
+left:70px;
+}
+
+.oxaloacetate{
+background:linear-gradient(135deg,#6366f1,#4338ca);
+top:420px;
+left:50px;
+}
+
+/* Center */
+
+.center{
+position:absolute;
+top:520px;
+left:470px;
+width:360px;
+height:250px;
+border-radius:35px;
+background:
+linear-gradient(145deg,
+rgba(255,255,255,0.15),
+rgba(255,255,255,0.05));
+backdrop-filter:blur(18px);
+border:2px solid rgba(255,255,255,0.25);
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:25px;
+box-shadow:
+0 0 35px rgba(56,189,248,0.4),
+0 15px 35px rgba(0,0,0,0.3);
+z-index:8;
+}
+
+.center h2{
+font-size:42px;
+margin-bottom:10px;
+background:linear-gradient(90deg,#facc15,#fb7185);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.center p{
+font-size:15px;
+line-height:1.6;
+color:#e2e8f0;
+}
+
+/* Enzymes */
+
+.enzyme{
+position:absolute;
+padding:8px 12px;
+border-radius:14px;
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(10px);
+border:1px solid rgba(255,255,255,0.2);
+font-size:13px;
+box-shadow:0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Positions */
+
+.e1{top:190px;left:900px;}
+.e2{top:370px;right:220px;}
+.e3{top:620px;right:250px;}
+.e4{bottom:260px;right:420px;}
+.e5{bottom:160px;left:560px;}
+.e6{bottom:260px;left:360px;}
+.e7{top:620px;left:260px;}
+.e8{top:370px;left:260px;}
+
+/* Energy */
+
+.energy{
+position:absolute;
+padding:10px 14px;
+border-radius:16px;
+font-size:14px;
+font-weight:800;
+color:white;
+animation:pulse 2s infinite;
+box-shadow:0 0 18px rgba(255,255,255,0.25);
+}
+
+.n1{
+top:490px;
+right:330px;
+background:#2563eb;
+}
+
+.n2{
+top:770px;
+right:330px;
+background:#7c3aed;
+}
+
+.gtp{
+bottom:150px;
+left:700px;
+background:#f59e0b;
+}
+
+.fadh{
+bottom:330px;
+left:320px;
+background:#dc2626;
+}
+
+.n3{
+top:770px;
+left:320px;
+background:#0f766e;
+}
+
+@keyframes pulse{
+0%{
+transform:scale(1);
+}
+50%{
+transform:scale(1.08);
+}
+100%{
+transform:scale(1);
+}
+}
+
+/* Popup */
 
 .popup{
 position:absolute;
-width:260px;
-background:rgba(255,255,255,0.75);
-backdrop-filter:blur(12px);
-border:1px solid rgba(255,255,255,0.5);
-border-radius:22px;
-padding:18px;
-box-shadow:0 12px 35px rgba(0,0,0,0.18);
+width:320px;
+padding:22px;
+border-radius:28px;
+background:
+linear-gradient(
+145deg,
+rgba(255,255,255,0.18),
+rgba(255,255,255,0.08)
+);
+backdrop-filter:blur(18px);
+border:1px solid rgba(255,255,255,0.25);
 display:none;
-z-index:20;
-animation:fade 0.35s ease;
+z-index:50;
+box-shadow:
+0 0 25px rgba(59,130,246,0.5),
+0 20px 40px rgba(0,0,0,0.35);
+animation:popup 0.35s ease;
 }
 
 .popup h2{
-font-size:22px;
-margin-bottom:12px;
+font-size:28px;
+margin-bottom:14px;
+color:#f8fafc;
 }
 
 .popup p{
-font-size:14px;
-line-height:1.6;
 margin-bottom:10px;
+line-height:1.6;
+font-size:14px;
+color:#e2e8f0;
 }
 
-.close{
-margin-top:10px;
-padding:8px 14px;
+.popup button{
+margin-top:12px;
+padding:10px 18px;
 border:none;
-border-radius:12px;
-background:#111;
+border-radius:14px;
+background:linear-gradient(90deg,#3b82f6,#8b5cf6);
 color:white;
+font-weight:700;
 cursor:pointer;
+transition:0.3s;
 }
 
-@keyframes fade{
+.popup button:hover{
+transform:scale(1.06);
+}
+
+@keyframes popup{
 from{
 opacity:0;
-transform:scale(0.9);
+transform:scale(0.8);
 }
 to{
 opacity:1;
@@ -121,141 +338,22 @@ transform:scale(1);
 }
 }
 
-.energy{
-position:absolute;
-padding:8px 12px;
-background:#fff8dc;
-border:2px solid #111;
-border-radius:12px;
-font-size:14px;
-font-weight:700;
-box-shadow:0 4px 12px rgba(0,0,0,0.1);
-animation:pulse 2s infinite;
-}
-
-@keyframes pulse{
-0%{transform:scale(1);}
-50%{transform:scale(1.06);}
-100%{transform:scale(1);}
-}
-
-.enzyme{
-position:absolute;
-font-size:13px;
-background:white;
-padding:6px 10px;
-border-radius:10px;
-border:1px dashed #222;
-box-shadow:0 2px 8px rgba(0,0,0,0.1);
-}
-
-.center{
-position:absolute;
-top:480px;
-left:450px;
-width:300px;
-height:220px;
-background:white;
-border:3px solid #111;
-border-radius:28px;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:20px;
-box-shadow:0 10px 30px rgba(0,0,0,0.15);
-z-index:6;
-}
-
-.center h2{
-font-size:34px;
-margin-bottom:10px;
-}
-
-.center p{
-font-size:15px;
-line-height:1.5;
-}
+/* Flow Animation */
 
 .flow{
-stroke-dasharray:12;
+stroke-dasharray:14;
 animation:move 2s linear infinite;
 }
 
 @keyframes move{
 to{
-stroke-dashoffset:-24;
+stroke-dashoffset:-28;
 }
 }
 
-/* Nodes */
+/* Mobile */
 
-.citrate{
-top:80px;
-left:515px;
-}
-
-.aconitate{
-top:190px;
-right:180px;
-}
-
-.isocitrate{
-top:380px;
-right:60px;
-}
-
-.akg{
-top:610px;
-right:80px;
-}
-
-.succinyl{
-bottom:260px;
-right:220px;
-}
-
-.succinate{
-bottom:90px;
-left:515px;
-}
-
-.fumarate{
-bottom:260px;
-left:220px;
-}
-
-.malate{
-top:610px;
-left:80px;
-}
-
-.oxaloacetate{
-top:380px;
-left:60px;
-}
-
-/* Enzymes */
-
-.e1{top:170px;left:820px;}
-.e2{top:330px;right:210px;}
-.e3{top:560px;right:230px;}
-.e4{bottom:240px;right:390px;}
-.e5{bottom:150px;left:510px;}
-.e6{bottom:240px;left:350px;}
-.e7{top:560px;left:240px;}
-.e8{top:330px;left:240px;}
-
-/* Energy */
-
-.n1{top:450px;right:320px;}
-.n2{top:720px;right:320px;}
-.gtp{bottom:140px;left:650px;}
-.fadh{bottom:310px;left:310px;}
-.n3{top:720px;left:310px;}
-
-@media(max-width:1200px){
+@media(max-width:1300px){
 
 body{
 overflow-x:scroll;
@@ -271,91 +369,102 @@ overflow-x:scroll;
 <h1>Citric Acid Cycle</h1>
 
 <div class="subtitle">
-Interactive Krebs Cycle • Touch Any Intermediate
+Ultra Interactive • Animated • Medical Textbook Style
 </div>
 
 <div class="wrapper">
 
-<svg width="1200" height="1200">
+<svg width="1300" height="1300">
 
 <defs>
 
 <marker id="arrow"
-markerWidth="10"
-markerHeight="10"
+markerWidth="12"
+markerHeight="12"
 refX="7"
 refY="3"
 orient="auto">
 
-<path d="M0,0 L0,6 L9,3 z" fill="#111"/>
+<path d="M0,0 L0,6 L10,3 z"
+fill="white"/>
 
 </marker>
 
 </defs>
 
+<!-- Main Circle -->
+
 <circle
-cx="600"
-cy="600"
-r="410"
+class="glow-ring"
+cx="650"
+cy="650"
+r="450"
 fill="none"
-stroke="#111"
+stroke="rgba(255,255,255,0.85)"
+stroke-width="5"
+stroke-dasharray="16 10"
+/>
+
+<!-- Flow -->
+
+<path class="flow"
+d="M650 200 Q1060 280 1100 650"
+fill="none"
+stroke="white"
 stroke-width="4"
-stroke-dasharray="14 8"
-/>
-
-<path class="flow"
-d="M600 190 Q980 270 1010 600"
-fill="none"
-stroke="#111"
-stroke-width="3"
 marker-end="url(#arrow)"
 />
 
 <path class="flow"
-d="M1010 600 Q960 950 600 1010"
+d="M1100 650 Q1030 1050 650 1100"
 fill="none"
-stroke="#111"
-stroke-width="3"
+stroke="white"
+stroke-width="4"
 marker-end="url(#arrow)"
 />
 
 <path class="flow"
-d="M600 1010 Q240 950 190 600"
+d="M650 1100 Q260 1040 200 650"
 fill="none"
-stroke="#111"
-stroke-width="3"
+stroke="white"
+stroke-width="4"
 marker-end="url(#arrow)"
 />
 
 <path class="flow"
-d="M190 600 Q240 250 600 190"
+d="M200 650 Q260 260 650 200"
 fill="none"
-stroke="#111"
-stroke-width="3"
+stroke="white"
+stroke-width="4"
 marker-end="url(#arrow)"
 />
 
 </svg>
 
+<!-- Center -->
+
 <div class="center">
 <h2>Acetyl-CoA</h2>
+
 <p>
-Condenses with Oxaloacetate to initiate the Citric Acid Cycle.
+Condenses with Oxaloacetate to initiate the Citric Acid Cycle and energy production.
 </p>
 </div>
 
+<!-- Nodes -->
+
 <div class="node citrate"
-onclick="showPopup(event,
+onclick="openPopup(event,
 'Citrate',
 'Citrate Synthase',
 'Condensation',
 'Citrate formed',
-'First irreversible step of cycle.')">
+'First irreversible step.')">
 Citrate
 </div>
 
 <div class="node aconitate"
-onclick="showPopup(event,
+onclick="openPopup(event,
 'cis-Aconitate',
 'Aconitase',
 'Intermediate',
@@ -365,72 +474,72 @@ cis-Aconitate
 </div>
 
 <div class="node isocitrate"
-onclick="showPopup(event,
+onclick="openPopup(event,
 'Isocitrate',
 'Aconitase',
 'Isomerization',
 'Isocitrate formed',
-'Prepares molecule for oxidation.')">
+'Prepares for oxidation.')">
 Isocitrate
 </div>
 
 <div class="node akg"
-onclick="showPopup(event,
+onclick="openPopup(event,
 'α-Ketoglutarate',
 'Isocitrate Dehydrogenase',
 'Oxidative Decarboxylation',
 'NADH + CO₂',
-'Major regulatory step.')">
+'Major regulation step.')">
 α-Ketoglutarate
 </div>
 
 <div class="node succinyl"
-onclick="showPopup(event,
+onclick="openPopup(event,
 'Succinyl-CoA',
 'α-Ketoglutarate Dehydrogenase',
 'Oxidative Decarboxylation',
 'NADH + CO₂',
-'High-energy thioester bond.')">
+'High-energy thioester.')">
 Succinyl-CoA
 </div>
 
 <div class="node succinate"
-onclick="showPopup(event,
+onclick="openPopup(event,
 'Succinate',
 'Succinyl-CoA Synthetase',
-'Substrate-Level Phosphorylation',
+'Substrate Level Phosphorylation',
 'GTP formed',
-'Only direct ATP/GTP producing step.')">
+'Only direct ATP/GTP step.')">
 Succinate
 </div>
 
 <div class="node fumarate"
-onclick="showPopup(event,
+onclick="openPopup(event,
 'Fumarate',
 'Succinate Dehydrogenase',
 'Oxidation',
 'FADH₂ formed',
-'Linked directly to ETC Complex II.')">
+'Connected to ETC Complex II.')">
 Fumarate
 </div>
 
 <div class="node malate"
-onclick="showPopup(event,
+onclick="openPopup(event,
 'Malate',
 'Fumarase',
 'Hydration',
 'Malate formed',
-'Water added across double bond.')">
+'Water added.')">
 Malate
 </div>
 
 <div class="node oxaloacetate"
-onclick="showPopup(event,
+onclick="openPopup(event,
 'Oxaloacetate',
 'Malate Dehydrogenase',
 'Oxidation',
 'NADH formed',
-'Regenerates Oxaloacetate.')">
+'Regenerated for next cycle.')">
 Oxaloacetate
 </div>
 
@@ -456,19 +565,33 @@ Oxaloacetate
 <!-- Popup -->
 
 <div class="popup" id="popup">
-<h2 id="pTitle"></h2>
 
-<p><b>Enzyme:</b> <span id="pEnzyme"></span></p>
+<h2 id="title"></h2>
 
-<p><b>Reaction Type:</b> <span id="pType"></span></p>
+<p>
+<b>Enzyme:</b>
+<span id="enzyme"></span>
+</p>
 
-<p><b>Products:</b> <span id="pProducts"></span></p>
+<p>
+<b>Reaction:</b>
+<span id="reaction"></span>
+</p>
 
-<p><b>Notes:</b> <span id="pNotes"></span></p>
+<p>
+<b>Products:</b>
+<span id="products"></span>
+</p>
 
-<button class="close" onclick="closePopup()">
+<p>
+<b>Important Notes:</b>
+<span id="notes"></span>
+</p>
+
+<button onclick="closePopup()">
 Close
 </button>
+
 </div>
 
 </div>
@@ -477,13 +600,20 @@ Close
 
 const popup=document.getElementById("popup");
 
-function showPopup(event,title,enzyme,type,products,notes){
+function openPopup(
+event,
+title,
+enzyme,
+reaction,
+products,
+notes
+){
 
-document.getElementById("pTitle").innerText=title;
-document.getElementById("pEnzyme").innerText=enzyme;
-document.getElementById("pType").innerText=type;
-document.getElementById("pProducts").innerText=products;
-document.getElementById("pNotes").innerText=notes;
+document.getElementById("title").innerText=title;
+document.getElementById("enzyme").innerText=enzyme;
+document.getElementById("reaction").innerText=reaction;
+document.getElementById("products").innerText=products;
+document.getElementById("notes").innerText=notes;
 
 popup.style.display="block";
 
