@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Citric Acid Cycle - BioChamp</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(135deg, #020617, #0f172a);
+      color: white;
+      font-family: Arial, sans-serif;
+      overflow-x: hidden;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: cyan;
+      margin-top: 10px;
+      font-size: 40px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #cbd5e1;
+      margin-top: 10px;
+      margin-bottom: 30px;
+      font-size: 18px;
+    }
+
+    .cycle-container {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      height: 900px;
+      margin: auto;
+    }
+
+    .center-box {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(15, 23, 42, 0.95);
+      border: 3px solid cyan;
+      border-radius: 25px;
+      padding: 25px;
+      width: 230px;
+      text-align: center;
+      box-shadow: 0 0 25px cyan;
+      z-index: 5;
+    }
+
+    .center-box h2 {
+      color: cyan;
+      font-size: 28px;
+    }
+
+    .center-box p {
+      margin-top: 10px;
+      color: #cbd5e1;
+      font-size: 15px;
+    }
+
+    .step {
+      position: absolute;
+      width: 180px;
+      background: rgba(30, 41, 59, 0.92);
+      border: 2px solid #22d3ee;
+      border-radius: 20px;
+      padding: 15px;
+      cursor: pointer;
+      transition: 0.35s;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(34, 211, 238, 0.3);
+    }
+
+    .step:hover {
+      transform: scale(1.08);
+      background: #0891b2;
+      box-shadow: 0 0 25px cyan;
+    }
+
+    .step h3 {
+      color: cyan;
+      margin-bottom: 8px;
+      font-size: 20px;
+    }
+
+    .details {
+      display: none;
+      margin-top: 12px;
+      text-align: left;
+      font-size: 14px;
+      color: #e2e8f0;
+      line-height: 1.5;
+    }
+
+    .details strong {
+      color: #67e8f9;
+    }
+
+    .yield-box {
+      margin-top: 50px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .info-card {
+      background: rgba(15, 23, 42, 0.95);
+      border: 2px solid cyan;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 0 15px rgba(34, 211, 238, 0.25);
+    }
+
+    .info-card h2 {
+      color: cyan;
+      margin-bottom: 15px;
+    }
+
+    .info-card ul {
+      padding-left: 20px;
+      line-height: 1.8;
+    }
+
+    /* Circular Positions */
+
+    .s1 { top: 0%; left: 40%; }
+    .s2 { top: 12%; right: 5%; }
+    .s3 { top: 38%; right: 0%; }
+    .s4 { bottom: 20%; right: 10%; }
+    .s5 { bottom: 0%; left: 40%; }
+    .s6 { bottom: 20%; left: 10%; }
+    .s7 { top: 38%; left: 0%; }
+    .s8 { top: 12%; left: 5%; }
+
+    @media (max-width: 900px) {
+
+      .cycle-container {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .center-box {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        margin-bottom: 20px;
+      }
+
+      .step {
+        position: relative;
+        width: 95%;
+        margin: 10px 0;
+        top: auto !important;
+        bottom: auto !important;
+        left: auto !important;
+        right: auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Citric Acid Cycle</h1>
+
+  <div class="subtitle">
+    Interactive TCA / Krebs Cycle • Tap Any Step
+  </div>
+
+  <div class="cycle-container">
+
+    <div class="center-box">
+      <h2>Acetyl-CoA</h2>
+      <p>
+        Combines with Oxaloacetate to begin the Citric Acid Cycle.
+      </p>
+    </div>
+
+    <div class="step s1" onclick="toggle(this)">
+      <h3>Citrate</h3>
+
+      <div class="details">
+        <strong>Enzyme:</strong> Citrate Synthase<br><br>
+
+        <strong>Reaction:</strong><br>
+        Oxaloacetate + Acetyl-CoA → Citrate<br><br>
+
+        <strong>Type:</strong><br>
+        Condensation Reaction<br><br>
+
+        <strong>Importance:</strong><br>
+        First irreversible step of TCA cycle.
+      </div>
+    </div>
+
+    <div class="step s2" onclick="toggle(this)">
+      <h3>Isocitrate</h3>
+
+      <div class="details">
+        <strong>Enzyme:</strong> Aconitase<br><br>
+
+        <strong>Reaction:</strong><br>
+        Citrate ↔ Isocitrate<br><br>
+
+        <strong>Type:</strong><br>
+        Isomerization<br><br>
+
+        <strong>Importance:</strong><br>
+        Rearranges hydroxyl group for oxidation.
+      </div>
+    </div>
+
+    <div class="step s3" onclick="toggle(this)">
+      <h3>α-Ketoglutarate</h3>
+
+      <div class="details">
+        <strong>Enzyme:</strong> Isocitrate Dehydrogenase<br><br>
+
+        <strong>Products:</strong><br>
+        NADH + CO₂<br><br>
+
+        <strong>Type:</strong><br>
+        Oxidative Decarboxylation<br><br>
+
+        <strong>Importance:</strong><br>
+        Major regulatory step.
+      </div>
+    </div>
+
+    <div class="step s4" onclick="toggle(this)">
+      <h3>Succinyl-CoA</h3>
+
+      <div class="details">
+        <strong>Enzyme:</strong> α-Ketoglutarate Dehydrogenase<br><br>
+
+        <strong>Products:</strong><br>
+        NADH + CO₂<br><br>
+
+        <strong>Importance:</strong><br>
+        High-energy thioester compound.
+      </div>
+    </div>
+
+    <div class="step s5" onclick="toggle(this)">
+      <h3>Succinate</h3>
+
+      <div class="details">
+        <strong>Enzyme:</strong> Succinyl-CoA Synthetase<br><br>
+
+        <strong>Products:</strong><br>
+        GTP formed<br><br>
+
+        <strong>Type:</strong><br>
+        Substrate-level phosphorylation.
+      </div>
+    </div>
+
+    <div class="step s6" onclick="toggle(this)">
+      <h3>Fumarate</h3>
+
+      <div class="details">
+        <strong>Enzyme:</strong> Succinate Dehydrogenase<br><br>
+
+        <strong>Products:</strong><br>
+        FADH₂ formed<br><br>
+
+        <strong>Location:</strong><br>
+        Inner mitochondrial membrane.
+      </div>
+    </div>
+
+    <div class="step s7" onclick="toggle(this)">
+      <h3>Malate</h3>
+
+      <div class="details">
+        <strong>Enzyme:</strong> Fumarase<br><br>
+
+        <strong>Reaction:</strong><br>
+        Fumarate + H₂O → Malate<br><br>
+
+        <strong>Type:</strong><br>
+        Hydration reaction.
+      </div>
+    </div>
+
+    <div class="step s8" onclick="toggle(this)">
+      <h3>Oxaloacetate</h3>
+
+      <div class="details">
+        <strong>Enzyme:</strong> Malate Dehydrogenase<br><br>
+
+        <strong>Products:</strong><br>
+        NADH formed<br><br>
+
+        <strong>Importance:</strong><br>
+        Regenerates Oxaloacetate for next cycle.
+      </div>
+    </div>
+
+  </div>
+
+  <div class="yield-box">
+
+    <div class="info-card">
+      <h2>Net Yield</h2>
+
+      <ul>
+        <li>3 NADH</li>
+        <li>1 FADH₂</li>
+        <li>1 GTP</li>
+        <li>2 CO₂</li>
+      </ul>
+    </div>
+
+    <div class="info-card">
+      <h2>Location</h2>
+
+      <ul>
+        <li>Mitochondrial Matrix</li>
+        <li>Succinate Dehydrogenase in Inner Membrane</li>
+      </ul>
+    </div>
+
+    <div class="info-card">
+      <h2>Functions</h2>
+
+      <ul>
+        <li>ATP Production</li>
+        <li>Oxidation of Acetyl-CoA</li>
+        <li>Provides Intermediates for Biosynthesis</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <script>
+    function toggle(element) {
+
+      let details = element.querySelector(".details");
+
+      if (details.style.display === "block") {
+        details.style.display = "none";
+      } else {
+        details.style.display = "block";
+      }
+
+    }
+  </script>
+
+</body>
+</html>
