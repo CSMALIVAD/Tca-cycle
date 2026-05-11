@@ -19,7 +19,7 @@ box-sizing:border-box;
 body{
 font-family:Arial,sans-serif;
 background:
-radial-gradient(circle at top,#1e3a8a,#020617 65%);
+radial-gradient(circle at top,#1e293b,#020617 70%);
 overflow-x:auto;
 color:white;
 }
@@ -28,15 +28,18 @@ color:white;
 
 h1{
 text-align:center;
-font-size:48px;
+font-size:52px;
 margin-top:20px;
 font-weight:800;
-background:linear-gradient(
+
+background:
+linear-gradient(
 90deg,
 #38bdf8,
 #a78bfa,
 #22c55e
 );
+
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
@@ -45,16 +48,16 @@ background:linear-gradient(
 text-align:center;
 font-size:18px;
 margin-top:10px;
-margin-bottom:20px;
+margin-bottom:30px;
 color:#cbd5e1;
 }
 
-/* MAIN AREA */
+/* MAIN */
 
 .wrapper{
 position:relative;
-width:1500px;
-height:1500px;
+width:1700px;
+height:1700px;
 margin:auto;
 }
 
@@ -70,22 +73,23 @@ overflow:visible;
 /* MAIN CIRCLE */
 
 .glow-ring{
-filter:drop-shadow(
-0 0 25px rgba(56,189,248,0.6)
+filter:
+drop-shadow(
+0 0 30px rgba(59,130,246,0.7)
 );
 }
 
 /* FLOW */
 
 .flow{
-stroke-dasharray:14;
+stroke-dasharray:16;
 animation:move 2s linear infinite;
 }
 
 @keyframes move{
 
 to{
-stroke-dashoffset:-28;
+stroke-dashoffset:-32;
 }
 
 }
@@ -94,11 +98,14 @@ stroke-dashoffset:-28;
 
 .center{
 position:absolute;
-top:610px;
-left:560px;
-width:380px;
-height:280px;
-border-radius:35px;
+
+top:710px;
+left:610px;
+
+width:480px;
+height:300px;
+
+border-radius:40px;
 
 background:
 linear-gradient(
@@ -107,7 +114,7 @@ rgba(255,255,255,0.15),
 rgba(255,255,255,0.05)
 );
 
-backdrop-filter:blur(18px);
+backdrop-filter:blur(20px);
 
 border:
 2px solid rgba(255,255,255,0.25);
@@ -116,20 +123,21 @@ display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
+
 text-align:center;
 
-padding:25px;
+padding:30px;
 
 box-shadow:
-0 0 35px rgba(56,189,248,0.4),
-0 15px 35px rgba(0,0,0,0.3);
+0 0 40px rgba(59,130,246,0.5),
+0 20px 40px rgba(0,0,0,0.35);
 
 z-index:20;
 }
 
 .center h2{
-font-size:42px;
-margin-bottom:10px;
+font-size:48px;
+margin-bottom:14px;
 
 background:
 linear-gradient(
@@ -143,8 +151,8 @@ linear-gradient(
 }
 
 .center p{
-font-size:15px;
-line-height:1.6;
+font-size:16px;
+line-height:1.7;
 color:#e2e8f0;
 }
 
@@ -153,12 +161,10 @@ color:#e2e8f0;
 .node{
 position:absolute;
 
-width:190px;
-min-height:90px;
+width:220px;
+min-height:100px;
 
-padding:18px;
-
-border-radius:22px;
+padding:22px;
 
 display:flex;
 align-items:center;
@@ -166,8 +172,10 @@ justify-content:center;
 
 text-align:center;
 
-font-size:18px;
+font-size:20px;
 font-weight:700;
+
+border-radius:28px;
 
 cursor:pointer;
 
@@ -179,14 +187,12 @@ border:
 2px solid rgba(255,255,255,0.3);
 
 box-shadow:
-0 8px 20px rgba(0,0,0,0.25),
-0 0 18px rgba(255,255,255,0.15);
+0 10px 24px rgba(0,0,0,0.28),
+0 0 18px rgba(255,255,255,0.12);
 
 z-index:5;
 
 user-select:none;
-
-line-height:1.4;
 }
 
 .node:hover{
@@ -196,23 +202,23 @@ scale(1.08)
 translateY(-6px);
 
 box-shadow:
-0 0 25px rgba(255,255,255,0.5),
-0 0 40px rgba(59,130,246,0.7);
+0 0 28px rgba(255,255,255,0.5),
+0 0 50px rgba(59,130,246,0.75);
 
 }
 
-/* COLORFUL NODES */
+/* COLORS */
 
 .citrate{
 background:
 linear-gradient(
 135deg,
 #22c55e,
-#16a34a
+#15803d
 );
 
-top:60px;
-left:665px;
+top:40px;
+left:755px;
 }
 
 .aconitate{
@@ -220,11 +226,11 @@ background:
 linear-gradient(
 135deg,
 #06b6d4,
-#0891b2
+#0e7490
 );
 
-top:220px;
-right:180px;
+top:230px;
+right:170px;
 }
 
 .isocitrate{
@@ -235,8 +241,8 @@ linear-gradient(
 #1d4ed8
 );
 
-top:470px;
-right:40px;
+top:520px;
+right:10px;
 }
 
 .akg{
@@ -247,8 +253,8 @@ linear-gradient(
 #6d28d9
 );
 
-top:760px;
-right:60px;
+top:910px;
+right:40px;
 }
 
 .succinyl{
@@ -259,8 +265,8 @@ linear-gradient(
 #be185d
 );
 
-bottom:260px;
-right:220px;
+bottom:280px;
+right:240px;
 }
 
 .succinate{
@@ -271,8 +277,8 @@ linear-gradient(
 #d97706
 );
 
-bottom:60px;
-left:665px;
+bottom:40px;
+left:755px;
 }
 
 .fumarate{
@@ -283,8 +289,8 @@ linear-gradient(
 #b91c1c
 );
 
-bottom:260px;
-left:220px;
+bottom:280px;
+left:240px;
 }
 
 .malate{
@@ -295,8 +301,8 @@ linear-gradient(
 #0f766e
 );
 
-top:760px;
-left:60px;
+top:910px;
+left:40px;
 }
 
 .oxaloacetate{
@@ -307,8 +313,8 @@ linear-gradient(
 #4338ca
 );
 
-top:470px;
-left:40px;
+top:520px;
+left:10px;
 }
 
 /* ENZYMES */
@@ -316,9 +322,9 @@ left:40px;
 .enzyme{
 position:absolute;
 
-padding:8px 12px;
+padding:10px 14px;
 
-border-radius:14px;
+border-radius:16px;
 
 background:
 rgba(255,255,255,0.08);
@@ -328,50 +334,52 @@ backdrop-filter:blur(10px);
 border:
 1px solid rgba(255,255,255,0.2);
 
-font-size:13px;
+font-size:14px;
 
 box-shadow:
 0 4px 12px rgba(0,0,0,0.2);
 }
 
+/* PERFECT POSITIONS */
+
 .e1{
-top:180px;
-left:980px;
+top:200px;
+left:1140px;
 }
 
 .e2{
-top:400px;
-right:260px;
-}
-
-.e3{
-top:700px;
+top:470px;
 right:290px;
 }
 
+.e3{
+top:860px;
+right:340px;
+}
+
 .e4{
-bottom:230px;
-right:470px;
+bottom:250px;
+right:560px;
 }
 
 .e5{
-bottom:120px;
-left:640px;
+bottom:130px;
+left:760px;
 }
 
 .e6{
-bottom:230px;
-left:420px;
+bottom:250px;
+left:470px;
 }
 
 .e7{
-top:700px;
-left:290px;
+top:860px;
+left:340px;
 }
 
 .e8{
-top:400px;
-left:260px;
+top:470px;
+left:290px;
 }
 
 /* ENERGY */
@@ -379,9 +387,9 @@ left:260px;
 .energy{
 position:absolute;
 
-padding:10px 14px;
+padding:12px 16px;
 
-border-radius:16px;
+border-radius:18px;
 
 font-size:14px;
 font-weight:800;
@@ -391,7 +399,7 @@ color:white;
 animation:pulse 2s infinite;
 
 box-shadow:
-0 0 18px rgba(255,255,255,0.25);
+0 0 20px rgba(255,255,255,0.25);
 }
 
 @keyframes pulse{
@@ -411,32 +419,32 @@ transform:scale(1);
 }
 
 .n1{
-top:520px;
-right:380px;
+top:580px;
+right:430px;
 background:#2563eb;
 }
 
 .n2{
-top:860px;
-right:380px;
+top:1020px;
+right:430px;
 background:#7c3aed;
 }
 
 .gtp{
-bottom:120px;
-left:820px;
+bottom:150px;
+left:940px;
 background:#f59e0b;
 }
 
 .fadh{
-bottom:320px;
-left:360px;
+bottom:360px;
+left:430px;
 background:#dc2626;
 }
 
 .n3{
-top:860px;
-left:360px;
+top:1020px;
+left:430px;
 background:#0f766e;
 }
 
@@ -445,11 +453,11 @@ background:#0f766e;
 .popup{
 position:absolute;
 
-width:340px;
+width:390px;
 
-padding:22px;
+padding:28px;
 
-border-radius:28px;
+border-radius:32px;
 
 background:
 linear-gradient(
@@ -458,7 +466,7 @@ rgba(255,255,255,0.18),
 rgba(255,255,255,0.08)
 );
 
-backdrop-filter:blur(18px);
+backdrop-filter:blur(20px);
 
 border:
 1px solid rgba(255,255,255,0.25);
@@ -468,22 +476,22 @@ display:none;
 z-index:100;
 
 box-shadow:
-0 0 25px rgba(59,130,246,0.5),
+0 0 30px rgba(59,130,246,0.5),
 0 20px 40px rgba(0,0,0,0.35);
 
 animation:popup 0.35s ease;
 }
 
 .popup h2{
-font-size:28px;
-margin-bottom:14px;
+font-size:30px;
+margin-bottom:16px;
 color:#f8fafc;
 }
 
 .popup p{
-margin-bottom:10px;
-line-height:1.6;
-font-size:14px;
+margin-bottom:12px;
+line-height:1.7;
+font-size:15px;
 color:#e2e8f0;
 }
 
@@ -503,7 +511,7 @@ transform:scale(1);
 
 /* MOBILE */
 
-@media(max-width:1500px){
+@media(max-width:1700px){
 
 body{
 overflow-x:auto;
@@ -520,12 +528,14 @@ overflow-x:auto;
 <h1>Citric Acid Cycle</h1>
 
 <div class="subtitle">
-Ultra Interactive • Animated • Medical Textbook Style
+Interactive Krebs Cycle • Professional Book Style
 </div>
 
 <div class="wrapper">
 
-<svg width="1500" height="1500">
+<!-- SVG -->
+
+<svg width="1700" height="1700">
 
 <defs>
 
@@ -547,46 +557,46 @@ fill="white"/>
 
 <circle
 class="glow-ring"
-cx="750"
-cy="750"
-r="520"
+cx="850"
+cy="850"
+r="620"
 fill="none"
 stroke="rgba(255,255,255,0.85)"
 stroke-width="5"
-stroke-dasharray="16 10"
+stroke-dasharray="18 10"
 />
 
 <!-- FLOW -->
 
 <path class="flow"
-d="M750 230 Q1180 310 1230 750"
+d="M850 230 Q1350 330 1470 850"
 fill="none"
 stroke="white"
-stroke-width="4"
+stroke-width="5"
 marker-end="url(#arrow)"
 />
 
 <path class="flow"
-d="M1230 750 Q1160 1190 750 1270"
+d="M1470 850 Q1360 1360 850 1470"
 fill="none"
 stroke="white"
-stroke-width="4"
+stroke-width="5"
 marker-end="url(#arrow)"
 />
 
 <path class="flow"
-d="M750 1270 Q320 1190 270 750"
+d="M850 1470 Q340 1360 230 850"
 fill="none"
 stroke="white"
-stroke-width="4"
+stroke-width="5"
 marker-end="url(#arrow)"
 />
 
 <path class="flow"
-d="M270 750 Q320 310 750 230"
+d="M230 850 Q340 330 850 230"
 fill="none"
 stroke="white"
-stroke-width="4"
+stroke-width="5"
 marker-end="url(#arrow)"
 />
 
@@ -599,7 +609,7 @@ marker-end="url(#arrow)"
 <h2>Acetyl-CoA</h2>
 
 <p>
-Condenses with Oxaloacetate to initiate the Citric Acid Cycle and energy production.
+Condenses with Oxaloacetate to initiate the Citric Acid Cycle and ATP generation.
 </p>
 
 </div>
@@ -611,9 +621,9 @@ onclick="openPopup(
 event,
 'Citrate',
 'Citrate Synthase',
-'Condensation',
+'Condensation Reaction',
 'Citrate formed',
-'First irreversible step.'
+'First irreversible step of TCA cycle.'
 )">
 Citrate
 </div>
@@ -623,7 +633,7 @@ onclick="openPopup(
 event,
 'cis-Aconitate',
 'Aconitase',
-'Intermediate',
+'Intermediate Rearrangement',
 'Intermediate molecule',
 'Temporary dehydration intermediate.'
 )">
@@ -637,7 +647,7 @@ event,
 'Aconitase',
 'Isomerization',
 'Isocitrate formed',
-'Prepares for oxidation.'
+'Prepares substrate for oxidation.'
 )">
 Isocitrate
 </div>
@@ -649,7 +659,7 @@ event,
 'Isocitrate Dehydrogenase',
 'Oxidative Decarboxylation',
 'NADH + CO₂',
-'Major regulation step.'
+'Major regulatory step.'
 )">
 α-Ketoglutarate
 </div>
@@ -661,7 +671,7 @@ event,
 'α-Ketoglutarate Dehydrogenase',
 'Oxidative Decarboxylation',
 'NADH + CO₂',
-'High-energy thioester.'
+'Contains high-energy thioester bond.'
 )">
 Succinyl-CoA
 </div>
@@ -672,8 +682,8 @@ event,
 'Succinate',
 'Succinyl-CoA Synthetase',
 'Substrate Level Phosphorylation',
-'GTP formed',
-'Only direct ATP/GTP step.'
+'GTP generated',
+'Only direct ATP/GTP producing step.'
 )">
 Succinate
 </div>
@@ -684,8 +694,8 @@ event,
 'Fumarate',
 'Succinate Dehydrogenase',
 'Oxidation',
-'FADH₂ formed',
-'Connected to ETC Complex II.'
+'FADH₂ generated',
+'Linked directly to ETC Complex II.'
 )">
 Fumarate
 </div>
@@ -697,7 +707,7 @@ event,
 'Fumarase',
 'Hydration',
 'Malate formed',
-'Water added.'
+'Water added across double bond.'
 )">
 Malate
 </div>
@@ -708,8 +718,8 @@ event,
 'Oxaloacetate',
 'Malate Dehydrogenase',
 'Oxidation',
-'NADH formed',
-'Regenerated for next cycle.'
+'NADH generated',
+'Regenerated for next TCA cycle.'
 )">
 Oxaloacetate
 </div>
@@ -840,12 +850,16 @@ popup.style.display = "block";
 let x = event.pageX + 25;
 let y = event.pageY - 40;
 
-const popupWidth = 340;
-const popupHeight = 320;
+const popupWidth = 390;
+const popupHeight = 330;
 
-if(x + popupWidth > window.innerWidth){
+if(
+x + popupWidth >
+window.innerWidth
+){
 
-x = window.innerWidth
+x =
+window.innerWidth
 - popupWidth
 - 20;
 
@@ -875,7 +889,7 @@ popup.style.top = y + "px";
 
 }
 
-/* CLOSE WHEN TOUCHING SCREEN */
+/* CLOSE POPUP */
 
 document.addEventListener(
 "click",
