@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -23,14 +24,19 @@ overflow-x:auto;
 color:white;
 }
 
-/* Top */
+/* TITLE */
 
 h1{
 text-align:center;
 font-size:48px;
 margin-top:20px;
 font-weight:800;
-background:linear-gradient(90deg,#38bdf8,#a78bfa,#22c55e);
+background:linear-gradient(
+90deg,
+#38bdf8,
+#a78bfa,
+#22c55e
+);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
@@ -43,12 +49,12 @@ margin-bottom:20px;
 color:#cbd5e1;
 }
 
-/* Main */
+/* MAIN AREA */
 
 .wrapper{
 position:relative;
-width:1300px;
-height:1300px;
+width:1500px;
+height:1500px;
 margin:auto;
 }
 
@@ -61,131 +67,77 @@ left:0;
 overflow:visible;
 }
 
-/* Circular Glow */
+/* MAIN CIRCLE */
 
 .glow-ring{
-filter:drop-shadow(0 0 25px rgba(56,189,248,0.6));
+filter:drop-shadow(
+0 0 25px rgba(56,189,248,0.6)
+);
 }
 
-/* Nodes */
+/* FLOW */
 
-.node{
-position:absolute;
-width:185px;
-min-height:75px;
-padding:14px;
-border-radius:22px;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-font-size:18px;
-font-weight:700;
-cursor:pointer;
-transition:0.35s;
-backdrop-filter:blur(12px);
-border:2px solid rgba(255,255,255,0.3);
-box-shadow:
-0 8px 20px rgba(0,0,0,0.25),
-0 0 18px rgba(255,255,255,0.15);
-z-index:5;
-user-select:none;
+.flow{
+stroke-dasharray:14;
+animation:move 2s linear infinite;
 }
 
-.node:hover{
-transform:scale(1.12);
-box-shadow:
-0 0 25px rgba(255,255,255,0.5),
-0 0 40px rgba(59,130,246,0.7);
+@keyframes move{
+
+to{
+stroke-dashoffset:-28;
 }
 
-/* Colorful Nodes */
-
-.citrate{
-background:linear-gradient(135deg,#22c55e,#16a34a);
-top:80px;
-left:560px;
 }
 
-.aconitate{
-background:linear-gradient(135deg,#06b6d4,#0891b2);
-top:210px;
-right:170px;
-}
-
-.isocitrate{
-background:linear-gradient(135deg,#3b82f6,#1d4ed8);
-top:420px;
-right:50px;
-}
-
-.akg{
-background:linear-gradient(135deg,#8b5cf6,#6d28d9);
-top:670px;
-right:70px;
-}
-
-.succinyl{
-background:linear-gradient(135deg,#ec4899,#be185d);
-bottom:280px;
-right:220px;
-}
-
-.succinate{
-background:linear-gradient(135deg,#f59e0b,#d97706);
-bottom:100px;
-left:560px;
-}
-
-.fumarate{
-background:linear-gradient(135deg,#ef4444,#b91c1c);
-bottom:280px;
-left:220px;
-}
-
-.malate{
-background:linear-gradient(135deg,#14b8a6,#0f766e);
-top:670px;
-left:70px;
-}
-
-.oxaloacetate{
-background:linear-gradient(135deg,#6366f1,#4338ca);
-top:420px;
-left:50px;
-}
-
-/* Center */
+/* CENTER */
 
 .center{
 position:absolute;
-top:520px;
-left:470px;
-width:360px;
-height:250px;
+top:610px;
+left:560px;
+width:380px;
+height:280px;
 border-radius:35px;
+
 background:
-linear-gradient(145deg,
+linear-gradient(
+145deg,
 rgba(255,255,255,0.15),
-rgba(255,255,255,0.05));
+rgba(255,255,255,0.05)
+);
+
 backdrop-filter:blur(18px);
-border:2px solid rgba(255,255,255,0.25);
+
+border:
+2px solid rgba(255,255,255,0.25);
+
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
+
 padding:25px;
+
 box-shadow:
 0 0 35px rgba(56,189,248,0.4),
 0 15px 35px rgba(0,0,0,0.3);
-z-index:8;
+
+z-index:20;
 }
 
 .center h2{
 font-size:42px;
 margin-bottom:10px;
-background:linear-gradient(90deg,#facc15,#fb7185);
+
+background:
+linear-gradient(
+90deg,
+#facc15,
+#fb7185
+);
+
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
@@ -196,105 +148,329 @@ line-height:1.6;
 color:#e2e8f0;
 }
 
-/* Enzymes */
+/* NODES */
+
+.node{
+position:absolute;
+
+width:190px;
+min-height:90px;
+
+padding:18px;
+
+border-radius:22px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+text-align:center;
+
+font-size:18px;
+font-weight:700;
+
+cursor:pointer;
+
+transition:0.35s;
+
+backdrop-filter:blur(12px);
+
+border:
+2px solid rgba(255,255,255,0.3);
+
+box-shadow:
+0 8px 20px rgba(0,0,0,0.25),
+0 0 18px rgba(255,255,255,0.15);
+
+z-index:5;
+
+user-select:none;
+
+line-height:1.4;
+}
+
+.node:hover{
+
+transform:
+scale(1.08)
+translateY(-6px);
+
+box-shadow:
+0 0 25px rgba(255,255,255,0.5),
+0 0 40px rgba(59,130,246,0.7);
+
+}
+
+/* COLORFUL NODES */
+
+.citrate{
+background:
+linear-gradient(
+135deg,
+#22c55e,
+#16a34a
+);
+
+top:60px;
+left:665px;
+}
+
+.aconitate{
+background:
+linear-gradient(
+135deg,
+#06b6d4,
+#0891b2
+);
+
+top:220px;
+right:180px;
+}
+
+.isocitrate{
+background:
+linear-gradient(
+135deg,
+#3b82f6,
+#1d4ed8
+);
+
+top:470px;
+right:40px;
+}
+
+.akg{
+background:
+linear-gradient(
+135deg,
+#8b5cf6,
+#6d28d9
+);
+
+top:760px;
+right:60px;
+}
+
+.succinyl{
+background:
+linear-gradient(
+135deg,
+#ec4899,
+#be185d
+);
+
+bottom:260px;
+right:220px;
+}
+
+.succinate{
+background:
+linear-gradient(
+135deg,
+#f59e0b,
+#d97706
+);
+
+bottom:60px;
+left:665px;
+}
+
+.fumarate{
+background:
+linear-gradient(
+135deg,
+#ef4444,
+#b91c1c
+);
+
+bottom:260px;
+left:220px;
+}
+
+.malate{
+background:
+linear-gradient(
+135deg,
+#14b8a6,
+#0f766e
+);
+
+top:760px;
+left:60px;
+}
+
+.oxaloacetate{
+background:
+linear-gradient(
+135deg,
+#6366f1,
+#4338ca
+);
+
+top:470px;
+left:40px;
+}
+
+/* ENZYMES */
 
 .enzyme{
 position:absolute;
+
 padding:8px 12px;
+
 border-radius:14px;
-background:rgba(255,255,255,0.08);
+
+background:
+rgba(255,255,255,0.08);
+
 backdrop-filter:blur(10px);
-border:1px solid rgba(255,255,255,0.2);
+
+border:
+1px solid rgba(255,255,255,0.2);
+
 font-size:13px;
-box-shadow:0 4px 12px rgba(0,0,0,0.2);
+
+box-shadow:
+0 4px 12px rgba(0,0,0,0.2);
 }
 
-/* Positions */
+.e1{
+top:180px;
+left:980px;
+}
 
-.e1{top:190px;left:900px;}
-.e2{top:370px;right:220px;}
-.e3{top:620px;right:250px;}
-.e4{bottom:260px;right:420px;}
-.e5{bottom:160px;left:560px;}
-.e6{bottom:260px;left:360px;}
-.e7{top:620px;left:260px;}
-.e8{top:370px;left:260px;}
+.e2{
+top:400px;
+right:260px;
+}
 
-/* Energy */
+.e3{
+top:700px;
+right:290px;
+}
+
+.e4{
+bottom:230px;
+right:470px;
+}
+
+.e5{
+bottom:120px;
+left:640px;
+}
+
+.e6{
+bottom:230px;
+left:420px;
+}
+
+.e7{
+top:700px;
+left:290px;
+}
+
+.e8{
+top:400px;
+left:260px;
+}
+
+/* ENERGY */
 
 .energy{
 position:absolute;
+
 padding:10px 14px;
+
 border-radius:16px;
+
 font-size:14px;
 font-weight:800;
+
 color:white;
+
 animation:pulse 2s infinite;
-box-shadow:0 0 18px rgba(255,255,255,0.25);
+
+box-shadow:
+0 0 18px rgba(255,255,255,0.25);
+}
+
+@keyframes pulse{
+
+0%{
+transform:scale(1);
+}
+
+50%{
+transform:scale(1.08);
+}
+
+100%{
+transform:scale(1);
+}
+
 }
 
 .n1{
-top:490px;
-right:330px;
+top:520px;
+right:380px;
 background:#2563eb;
 }
 
 .n2{
-top:770px;
-right:330px;
+top:860px;
+right:380px;
 background:#7c3aed;
 }
 
 .gtp{
-bottom:150px;
-left:700px;
+bottom:120px;
+left:820px;
 background:#f59e0b;
 }
 
 .fadh{
-bottom:330px;
-left:320px;
+bottom:320px;
+left:360px;
 background:#dc2626;
 }
 
 .n3{
-top:770px;
-left:320px;
+top:860px;
+left:360px;
 background:#0f766e;
 }
 
-@keyframes pulse{
-0%{
-transform:scale(1);
-}
-50%{
-transform:scale(1.08);
-}
-100%{
-transform:scale(1);
-}
-}
-
-/* Popup */
+/* POPUP */
 
 .popup{
 position:absolute;
-width:320px;
+
+width:340px;
+
 padding:22px;
+
 border-radius:28px;
+
 background:
 linear-gradient(
 145deg,
 rgba(255,255,255,0.18),
 rgba(255,255,255,0.08)
 );
+
 backdrop-filter:blur(18px);
-border:1px solid rgba(255,255,255,0.25);
+
+border:
+1px solid rgba(255,255,255,0.25);
+
 display:none;
-z-index:50;
+
+z-index:100;
+
 box-shadow:
 0 0 25px rgba(59,130,246,0.5),
 0 20px 40px rgba(0,0,0,0.35);
+
 animation:popup 0.35s ease;
 }
 
@@ -311,57 +487,32 @@ font-size:14px;
 color:#e2e8f0;
 }
 
-.popup button{
-margin-top:12px;
-padding:10px 18px;
-border:none;
-border-radius:14px;
-background:linear-gradient(90deg,#3b82f6,#8b5cf6);
-color:white;
-font-weight:700;
-cursor:pointer;
-transition:0.3s;
-}
-
-.popup button:hover{
-transform:scale(1.06);
-}
-
 @keyframes popup{
+
 from{
 opacity:0;
 transform:scale(0.8);
 }
+
 to{
 opacity:1;
 transform:scale(1);
 }
+
 }
 
-/* Flow Animation */
+/* MOBILE */
 
-.flow{
-stroke-dasharray:14;
-animation:move 2s linear infinite;
-}
-
-@keyframes move{
-to{
-stroke-dashoffset:-28;
-}
-}
-
-/* Mobile */
-
-@media(max-width:1300px){
+@media(max-width:1500px){
 
 body{
-overflow-x:scroll;
+overflow-x:auto;
 }
 
 }
 
 </style>
+
 </head>
 
 <body>
@@ -374,7 +525,7 @@ Ultra Interactive • Animated • Medical Textbook Style
 
 <div class="wrapper">
 
-<svg width="1300" height="1300">
+<svg width="1500" height="1500">
 
 <defs>
 
@@ -392,23 +543,23 @@ fill="white"/>
 
 </defs>
 
-<!-- Main Circle -->
+<!-- MAIN CIRCLE -->
 
 <circle
 class="glow-ring"
-cx="650"
-cy="650"
-r="450"
+cx="750"
+cy="750"
+r="520"
 fill="none"
 stroke="rgba(255,255,255,0.85)"
 stroke-width="5"
 stroke-dasharray="16 10"
 />
 
-<!-- Flow -->
+<!-- FLOW -->
 
 <path class="flow"
-d="M650 200 Q1060 280 1100 650"
+d="M750 230 Q1180 310 1230 750"
 fill="none"
 stroke="white"
 stroke-width="4"
@@ -416,7 +567,7 @@ marker-end="url(#arrow)"
 />
 
 <path class="flow"
-d="M1100 650 Q1030 1050 650 1100"
+d="M1230 750 Q1160 1190 750 1270"
 fill="none"
 stroke="white"
 stroke-width="4"
@@ -424,7 +575,7 @@ marker-end="url(#arrow)"
 />
 
 <path class="flow"
-d="M650 1100 Q260 1040 200 650"
+d="M750 1270 Q320 1190 270 750"
 fill="none"
 stroke="white"
 stroke-width="4"
@@ -432,7 +583,7 @@ marker-end="url(#arrow)"
 />
 
 <path class="flow"
-d="M200 650 Q260 260 650 200"
+d="M270 750 Q320 310 750 230"
 fill="none"
 stroke="white"
 stroke-width="4"
@@ -441,128 +592,185 @@ marker-end="url(#arrow)"
 
 </svg>
 
-<!-- Center -->
+<!-- CENTER -->
 
 <div class="center">
+
 <h2>Acetyl-CoA</h2>
 
 <p>
 Condenses with Oxaloacetate to initiate the Citric Acid Cycle and energy production.
 </p>
+
 </div>
 
-<!-- Nodes -->
+<!-- NODES -->
 
 <div class="node citrate"
-onclick="openPopup(event,
+onclick="openPopup(
+event,
 'Citrate',
 'Citrate Synthase',
 'Condensation',
 'Citrate formed',
-'First irreversible step.')">
+'First irreversible step.'
+)">
 Citrate
 </div>
 
 <div class="node aconitate"
-onclick="openPopup(event,
+onclick="openPopup(
+event,
 'cis-Aconitate',
 'Aconitase',
 'Intermediate',
 'Intermediate molecule',
-'Temporary dehydration intermediate.')">
+'Temporary dehydration intermediate.'
+)">
 cis-Aconitate
 </div>
 
 <div class="node isocitrate"
-onclick="openPopup(event,
+onclick="openPopup(
+event,
 'Isocitrate',
 'Aconitase',
 'Isomerization',
 'Isocitrate formed',
-'Prepares for oxidation.')">
+'Prepares for oxidation.'
+)">
 Isocitrate
 </div>
 
 <div class="node akg"
-onclick="openPopup(event,
+onclick="openPopup(
+event,
 'α-Ketoglutarate',
 'Isocitrate Dehydrogenase',
 'Oxidative Decarboxylation',
 'NADH + CO₂',
-'Major regulation step.')">
+'Major regulation step.'
+)">
 α-Ketoglutarate
 </div>
 
 <div class="node succinyl"
-onclick="openPopup(event,
+onclick="openPopup(
+event,
 'Succinyl-CoA',
 'α-Ketoglutarate Dehydrogenase',
 'Oxidative Decarboxylation',
 'NADH + CO₂',
-'High-energy thioester.')">
+'High-energy thioester.'
+)">
 Succinyl-CoA
 </div>
 
 <div class="node succinate"
-onclick="openPopup(event,
+onclick="openPopup(
+event,
 'Succinate',
 'Succinyl-CoA Synthetase',
 'Substrate Level Phosphorylation',
 'GTP formed',
-'Only direct ATP/GTP step.')">
+'Only direct ATP/GTP step.'
+)">
 Succinate
 </div>
 
 <div class="node fumarate"
-onclick="openPopup(event,
+onclick="openPopup(
+event,
 'Fumarate',
 'Succinate Dehydrogenase',
 'Oxidation',
 'FADH₂ formed',
-'Connected to ETC Complex II.')">
+'Connected to ETC Complex II.'
+)">
 Fumarate
 </div>
 
 <div class="node malate"
-onclick="openPopup(event,
+onclick="openPopup(
+event,
 'Malate',
 'Fumarase',
 'Hydration',
 'Malate formed',
-'Water added.')">
+'Water added.'
+)">
 Malate
 </div>
 
 <div class="node oxaloacetate"
-onclick="openPopup(event,
+onclick="openPopup(
+event,
 'Oxaloacetate',
 'Malate Dehydrogenase',
 'Oxidation',
 'NADH formed',
-'Regenerated for next cycle.')">
+'Regenerated for next cycle.'
+)">
 Oxaloacetate
 </div>
 
-<!-- Enzymes -->
+<!-- ENZYMES -->
 
-<div class="enzyme e1">Aconitase</div>
-<div class="enzyme e2">Isocitrate Dehydrogenase</div>
-<div class="enzyme e3">α-Ketoglutarate Dehydrogenase</div>
-<div class="enzyme e4">Succinyl-CoA Synthetase</div>
-<div class="enzyme e5">Succinate Dehydrogenase</div>
-<div class="enzyme e6">Fumarase</div>
-<div class="enzyme e7">Malate Dehydrogenase</div>
-<div class="enzyme e8">Citrate Synthase</div>
+<div class="enzyme e1">
+Aconitase
+</div>
 
-<!-- Energy -->
+<div class="enzyme e2">
+Isocitrate Dehydrogenase
+</div>
 
-<div class="energy n1">NADH + CO₂</div>
-<div class="energy n2">NADH + CO₂</div>
-<div class="energy gtp">GTP</div>
-<div class="energy fadh">FADH₂</div>
-<div class="energy n3">NADH</div>
+<div class="enzyme e3">
+α-Ketoglutarate Dehydrogenase
+</div>
 
-<!-- Popup -->
+<div class="enzyme e4">
+Succinyl-CoA Synthetase
+</div>
+
+<div class="enzyme e5">
+Succinate Dehydrogenase
+</div>
+
+<div class="enzyme e6">
+Fumarase
+</div>
+
+<div class="enzyme e7">
+Malate Dehydrogenase
+</div>
+
+<div class="enzyme e8">
+Citrate Synthase
+</div>
+
+<!-- ENERGY -->
+
+<div class="energy n1">
+NADH + CO₂
+</div>
+
+<div class="energy n2">
+NADH + CO₂
+</div>
+
+<div class="energy gtp">
+GTP
+</div>
+
+<div class="energy fadh">
+FADH₂
+</div>
+
+<div class="energy n3">
+NADH
+</div>
+
+<!-- POPUP -->
 
 <div class="popup" id="popup">
 
@@ -588,17 +796,16 @@ Oxaloacetate
 <span id="notes"></span>
 </p>
 
-<button onclick="closePopup()">
-Close
-</button>
-
 </div>
 
 </div>
 
 <script>
 
-const popup=document.getElementById("popup");
+const popup =
+document.getElementById("popup");
+
+/* OPEN POPUP */
 
 function openPopup(
 event,
@@ -609,29 +816,109 @@ products,
 notes
 ){
 
-document.getElementById("title").innerText=title;
-document.getElementById("enzyme").innerText=enzyme;
-document.getElementById("reaction").innerText=reaction;
-document.getElementById("products").innerText=products;
-document.getElementById("notes").innerText=notes;
+event.stopPropagation();
 
-popup.style.display="block";
+document.getElementById("title").innerText =
+title;
 
-let x=event.pageX+20;
-let y=event.pageY-40;
+document.getElementById("enzyme").innerText =
+enzyme;
 
-popup.style.left=x+"px";
-popup.style.top=y+"px";
+document.getElementById("reaction").innerText =
+reaction;
+
+document.getElementById("products").innerText =
+products;
+
+document.getElementById("notes").innerText =
+notes;
+
+popup.style.display = "block";
+
+/* SMART POSITION */
+
+let x = event.pageX + 25;
+let y = event.pageY - 40;
+
+const popupWidth = 340;
+const popupHeight = 320;
+
+if(x + popupWidth > window.innerWidth){
+
+x = window.innerWidth
+- popupWidth
+- 20;
 
 }
 
-function closePopup(){
+if(
+y + popupHeight >
+window.innerHeight + window.scrollY
+){
 
-popup.style.display="none";
+y =
+window.innerHeight
++ window.scrollY
+- popupHeight
+- 20;
 
 }
+
+if(y < 20){
+
+y = 20;
+
+}
+
+popup.style.left = x + "px";
+popup.style.top = y + "px";
+
+}
+
+/* CLOSE WHEN TOUCHING SCREEN */
+
+document.addEventListener(
+"click",
+function(e){
+
+const isNode =
+e.target.closest(".node");
+
+const isPopup =
+e.target.closest(".popup");
+
+if(!isNode && !isPopup){
+
+popup.style.display = "none";
+
+}
+
+}
+);
+
+/* MOBILE TOUCH */
+
+document.addEventListener(
+"touchstart",
+function(e){
+
+const isNode =
+e.target.closest(".node");
+
+const isPopup =
+e.target.closest(".popup");
+
+if(!isNode && !isPopup){
+
+popup.style.display = "none";
+
+}
+
+}
+);
 
 </script>
 
 </body>
+
 </html>
