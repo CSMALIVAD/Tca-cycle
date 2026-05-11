@@ -1,76 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Professional Citric Acid Cycle</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Arial,sans-serif;
+background:
+radial-gradient(circle at top,#14213d,#000814 75%);
+overflow:auto;
+color:white;
+min-width:1800px;
+}
+
+/* TITLE */
+
+h1{
+text-align:center;
+font-size:54px;
+margin-top:20px;
+font-weight:800;
+
+background:
+linear-gradient(
+90deg,
+#38bdf8,
+#a78bfa,
+#22c55e
+);
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.subtitle{
+text-align:center;
+font-size:18px;
+margin-top:10px;
+margin-bottom:30px;
+color:#cbd5e1;
+}
+
+/* MAIN */
+
+.wrapper{
+position:relative;
+width:1800px;
+height:1800px;
+margin:auto;
+}
+
+/* SVG */
+
+svg{
+position:absolute;
+top:0;
+left:0;
+overflow:visible;
+}
+
+/* FLOW */
+
+.flow{
+stroke-dasharray:14;
+animation:move 2s linear infinite;
+}
+
+@keyframes move{
+to{
+stroke-dashoffset:-28;
+}
+}
+
+/* CENTER */
+
+.center{
+position:absolute;
+width:500px;
+height:300px;
+
+left:650px;
+top:750px;
+
+border-radius:40px;
+
+background:
+linear-gradient(
+145deg,
+rgba(255,255,255,0.14),
+rgba(255,255,255,0.05)
+);
+
+backdrop-filter:blur(20px);
+
+border:
+2px solid rgba(255,255,255,0.2);
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+
+text-align:center;
+
+padding:30px;
+
+box-shadow:
+0 0 40px rgba(59,130,246,0.45),
+0 20px 40px rgba(0,0,0,0.35);
+
+z-index:30;
+}
+
+.center h2{
+font-size:52px;
+margin-bottom:16px;
+
+background:
+linear-gradient(
+90deg,
+#facc15,
+#fb7185
+);
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.center p{
+font-size:17px;
+line-height:1.7;
+color:#e2e8f0;
+}
+
+/* NODES */
+
+.node{
+position:absolute;
+
+width:230px;
+height:110px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+text-align:center;
+
+font-size:22px;
+font-weight:700;
+
+border-radius:30px;
+
+cursor:pointer;
+
+transition:0.35s;
+
+backdrop-filter:blur(12px);
+
+border:
+2px solid rgba(255,255,255,0.28);
+
+box-shadow:
+0 10px 28px rgba(0,0,0,0.35),
+0 0 18px rgba(255,255,255,0.12);
+
+z-index:20;
+}
+
+.node:hover{
+
+transform:
+scale(1.08);
+
+box-shadow:
+0 0 30px rgba(255,255,255,0.45),
+0 0 55px rgba(59,130,246,0.8);
+
+}
+
+/* COLORS */
+
+.citrate{
+background:
+linear-gradient(135deg,#22c55e,#15803d);
+}
+
+.aconitate{
+background:
+linear-gradient(135deg,#06b6d4,#0e7490);
+}
+
+.isocitrate{
+background:
+linear-gradient(135deg,#3b82f6,#1d4ed8);
+}
+
+.akg{
+background:
+linear-gradient(135deg,#8b5cf6,#6d28d9);
+}
+
+.succinyl{
+background:
+linear-gradient(135deg,#ec4899,#be185d);
+}
+
+.succinate{
+background:
+linear-gradient(135deg,#f59e0b,#d97706);
+}
+
+.fumarate{
+background:
+linear-gradient(135deg,#ef4444,#b91c1c);
+}
+
+.malate{
+background:
+linear-gradient(135deg,#14b8a6,#0f766e);
+}
+
+.oxaloacetate{
+background:
+linear-gradient(135deg,#6366f1,#4338ca);
+}
+
+/* ENZYMES */
+
+.enzyme{
+position:absolute;
+
+padding:10px 14px;
+
+border-radius:16px;
+
+background:
+rgba(255,255,255,0.08);
+
+backdrop-filter:blur(10px);
+
+border:
+1px solid rgba(255,255,255,0.2);
+
+font-size:14px;
+
+box-shadow:
+0 4px 12px rgba(0,0,0,0.2);
+
+z-index:15;
+}
+
+/* ENERGY */
+
+.energy{
+position:absolute;
+
+padding:12px 16px;
+
+border-radius:18px;
+
+font-size:14px;
+font-weight:800;
+
+color:white;
+
+animation:pulse 2s infinite;
+
+box-shadow:
+0 0 20px rgba(255,255,255,0.25);
+
+z-index:15;
+}
+
+@keyframes pulse{
+
+0%{
+transform:scale(1);
+}
+
+50%{
+transform:scale(1.08);
+}
+
+100%{
+transform:scale(1);
+}
+
+}
+
+.n1{
+background:#2563eb;
+}
+
+.n2{
+background:#7c3aed;
+}
+
+.gtp{
+background:#f59e0b;
+}
+
+.fadh{
+background:#dc2626;
+}
+
+.n3{
+background:#0f766e;
+}
+
+/* POPUP */
+
+.popup{
+position:absolute;
+
+width:420px;
+
+padding:30px;
+
+border-radius:34px;
+
+background:
+linear-gradient(
+145deg,
+rgba(255,255,255,0.18),
+rgba(255,255,255,0.08)
+);
+
+backdrop-filter:blur(20px);
+
+border:
+1px solid rgba(255,255,255,0.25);
+
+display:none;
+
+z-index:100;
+
+box-shadow:
+0 0 35px rgba(59,130,246,0.5),
+0 20px 45px rgba(0,0,0,0.35);
+
+animation:popup 0.35s ease;
+}
+
+.popup h2{
+font-size:32px;
+margin-bottom:16px;
+}
+
+.popup p{
+margin-bottom:14px;
+line-height:1.8;
+font-size:15px;
+}
+
+@keyframes popup{
+
+from{
+opacity:0;
+transform:scale(0.82);
+}
+
+to{
+opacity:1;
+transform:scale(1);
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Citric Acid Cycle</h1>
+
+<div class="subtitle">
+True Circular Trigonometric Book Layout
+</div>
+
+<div class="wrapper">
+
+<!-- SVG -->
+
+<svg width="1800" height="1800">
+
+<defs>
+
+<marker id="arrow"
+markerWidth="12"
+markerHeight="12"
+refX="7"
+refY="3"
+orient="auto">
+
+<path d="M0,0 L0,6 L10,3 z"
+fill="white"/>
+
+</marker>
+
+</defs>
+
+<circle
+cx="900"
+cy="900"
+r="620"
+fill="none"
+stroke="rgba(255,255,255,0.9)"
+stroke-width="5"
+stroke-dasharray="18 10"
+/>
+
+</svg>
+
+<!-- CENTER -->
+
+<div class="center">
+
+<h2>Acetyl-CoA</h2>
+
+<p>
+Condenses with Oxaloacetate to initiate the Citric Acid Cycle and ATP generation.
+</p>
+
+</div>
+
+<!-- METABOLITES -->
+
+<div class="node citrate">Citrate</div>
+<div class="node aconitate">cis-Aconitate</div>
+<div class="node isocitrate">Isocitrate</div>
+<div class="node akg">α-Ketoglutarate</div>
+<div class="node succinyl">Succinyl-CoA</div>
+<div class="node succinate">Succinate</div>
+<div class="node fumarate">Fumarate</div>
+<div class="node malate">Malate</div>
+<div class="node oxaloacetate">Oxaloacetate</div>
+
+<!-- ENZYMES -->
+
+<div class="enzyme e1">Aconitase</div>
+<div class="enzyme e2">Aconitase</div>
+<div class="enzyme e3">Isocitrate Dehydrogenase</div>
+<div class="enzyme e4">α-Ketoglutarate Dehydrogenase</div>
+<div class="enzyme e5">Succinyl-CoA Synthetase</div>
+<div class="enzyme e6">Succinate Dehydrogenase</div>
+<div class="enzyme e7">Fumarase</div>
+<div class="enzyme e8">Malate Dehydrogenase</div>
+<div class="enzyme e9">Citrate Synthase</div>
+
+<!-- ENERGY -->
+
+<div class="energy n1">NADH + CO₂</div>
+<div class="energy n2">NADH + CO₂</div>
+<div class="energy gtp">GTP</div>
+<div class="energy fadh">FADH₂</div>
+<div class="energy n3">NADH</div>
+
+<!-- POPUP -->
+
+<div class="popup" id="popup">
+
+<h2 id="title"></h2>
+
+<p>
+<b>Enzyme:</b>
+<span id="enzyme"></span>
+</p>
+
+<p>
+<b>Reaction:</b>
+<span id="reaction"></span>
+</p>
+
+<p>
+<b>Products:</b>
+<span id="products"></span>
+</p>
+
+<p>
+<b>Important Notes:</b>
+<span id="notes"></span>
+</p>
+
+</div>
+
+</div>
+
 <script>
 
-/* =========================================
-   TRUE BIOCHEMISTRY BOOK POSITIONING
-   USING TRIGONOMETRIC CIRCLE GEOMETRY
-========================================= */
+window.onload = function(){
 
-/* MAIN CONFIG */
+const popup =
+document.getElementById("popup");
 
 const centerX = 900;
 const centerY = 900;
 
 const metaboliteRadius = 620;
 const enzymeRadius = 760;
-const cofactorRadius = 880;
+const cofactorRadius = 860;
 
 /* METABOLITES */
 
 const metabolites = [
 
-{
-name:"Citrate",
-angle:-90,
-className:"citrate"
-},
-
-{
-name:"cis-Aconitate",
-angle:-50,
-className:"aconitate"
-},
-
-{
-name:"Isocitrate",
-angle:-10,
-className:"isocitrate"
-},
-
-{
-name:"α-Ketoglutarate",
-angle:35,
-className:"akg"
-},
-
-{
-name:"Succinyl-CoA",
-angle:75,
-className:"succinyl"
-},
-
-{
-name:"Succinate",
-angle:120,
-className:"succinate"
-},
-
-{
-name:"Fumarate",
-angle:165,
-className:"fumarate"
-},
-
-{
-name:"Malate",
-angle:215,
-className:"malate"
-},
-
-{
-name:"Oxaloacetate",
-angle:260,
-className:"oxaloacetate"
-}
+{className:"citrate",angle:-90},
+{className:"aconitate",angle:-50},
+{className:"isocitrate",angle:-10},
+{className:"akg",angle:35},
+{className:"succinyl",angle:75},
+{className:"succinate",angle:120},
+{className:"fumarate",angle:165},
+{className:"malate",angle:215},
+{className:"oxaloacetate",angle:260}
 
 ];
 
@@ -78,59 +533,15 @@ className:"oxaloacetate"
 
 const enzymes = [
 
-{
-name:"Aconitase",
-angle:-70,
-className:"e1"
-},
-
-{
-name:"Aconitase",
-angle:-30,
-className:"e2"
-},
-
-{
-name:"Isocitrate Dehydrogenase",
-angle:12,
-className:"e3"
-},
-
-{
-name:"α-Ketoglutarate Dehydrogenase",
-angle:55,
-className:"e4"
-},
-
-{
-name:"Succinyl-CoA Synthetase",
-angle:95,
-className:"e5"
-},
-
-{
-name:"Succinate Dehydrogenase",
-angle:145,
-className:"e6"
-},
-
-{
-name:"Fumarase",
-angle:190,
-className:"e7"
-},
-
-{
-name:"Malate Dehydrogenase",
-angle:240,
-className:"e8"
-},
-
-{
-name:"Citrate Synthase",
-angle:285,
-className:"e9"
-}
+{className:"e1",angle:-70},
+{className:"e2",angle:-30},
+{className:"e3",angle:12},
+{className:"e4",angle:55},
+{className:"e5",angle:95},
+{className:"e6",angle:145},
+{className:"e7",angle:190},
+{className:"e8",angle:240},
+{className:"e9",angle:285}
 
 ];
 
@@ -138,46 +549,20 @@ className:"e9"
 
 const cofactors = [
 
-{
-name:"NADH + CO₂",
-angle:18,
-className:"n1"
-},
-
-{
-name:"NADH + CO₂",
-angle:58,
-className:"n2"
-},
-
-{
-name:"GTP",
-angle:105,
-className:"gtp"
-},
-
-{
-name:"FADH₂",
-angle:155,
-className:"fadh"
-},
-
-{
-name:"NADH",
-angle:230,
-className:"n3"
-}
+{className:"n1",angle:18},
+{className:"n2",angle:58},
+{className:"gtp",angle:105},
+{className:"fadh",angle:155},
+{className:"n3",angle:230}
 
 ];
 
-/* =========================================
-   PLACE METABOLITES
-========================================= */
+/* PLACE METABOLITES */
 
-metabolites.forEach(item => {
+metabolites.forEach(item=>{
 
 const rad =
-item.angle * Math.PI / 180;
+item.angle * Math.PI/180;
 
 const x =
 centerX +
@@ -188,9 +573,7 @@ centerY +
 metaboliteRadius * Math.sin(rad);
 
 const element =
-document.querySelector(
-"." + item.className
-);
+document.querySelector("." + item.className);
 
 element.style.left =
 (x - 115) + "px";
@@ -200,14 +583,12 @@ element.style.top =
 
 });
 
-/* =========================================
-   PLACE ENZYMES
-========================================= */
+/* PLACE ENZYMES */
 
-enzymes.forEach(item => {
+enzymes.forEach(item=>{
 
 const rad =
-item.angle * Math.PI / 180;
+item.angle * Math.PI/180;
 
 const x =
 centerX +
@@ -218,26 +599,22 @@ centerY +
 enzymeRadius * Math.sin(rad);
 
 const element =
-document.querySelector(
-"." + item.className
-);
+document.querySelector("." + item.className);
 
 element.style.left =
-(x - 70) + "px";
+(x - 80) + "px";
 
 element.style.top =
 (y - 20) + "px";
 
 });
 
-/* =========================================
-   PLACE COFACTORS
-========================================= */
+/* PLACE COFACTORS */
 
-cofactors.forEach(item => {
+cofactors.forEach(item=>{
 
 const rad =
-item.angle * Math.PI / 180;
+item.angle * Math.PI/180;
 
 const x =
 centerX +
@@ -248,9 +625,7 @@ centerY +
 cofactorRadius * Math.sin(rad);
 
 const element =
-document.querySelector(
-"." + item.className
-);
+document.querySelector("." + item.className);
 
 element.style.left =
 (x - 60) + "px";
@@ -260,9 +635,7 @@ element.style.top =
 
 });
 
-/* =========================================
-   TRUE SVG CIRCULAR ARC
-========================================= */
+/* SVG TRUE ARCS */
 
 const svg =
 document.querySelector("svg");
@@ -319,33 +692,20 @@ ${metaboliteRadius}
 ${x2} ${y2}`
 );
 
-path.setAttribute(
-"fill",
-"none"
-);
-
-path.setAttribute(
-"stroke",
-"white"
-);
-
-path.setAttribute(
-"stroke-width",
-"5"
-);
-
-path.setAttribute(
-"class",
-"flow"
-);
-
-path.setAttribute(
-"marker-end",
-"url(#arrow)"
-);
+path.setAttribute("fill","none");
+path.setAttribute("stroke","white");
+path.setAttribute("stroke-width","5");
+path.setAttribute("class","flow");
+path.setAttribute("marker-end","url(#arrow)");
 
 svg.appendChild(path);
 
 }
 
+};
+
 </script>
+
+</body>
+
+</html>
