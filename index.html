@@ -210,29 +210,298 @@
     Krebs Cycle / TCA Cycle
   </div>
 
-  <div class="cycle-container">
+<!DOCTYPE html>
+<html lang="en">
 
-    <div class="circle"></div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <div class="center-box">
+  <title>Krebs Cycle Complete Book Style</title>
+
+  <style>
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: white;
+      font-family: Arial, sans-serif;
+      overflow-x: auto;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 42px;
+      color: black;
+    }
+
+    .subtitle {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #444;
+    }
+
+    .container {
+      position: relative;
+      width: 1400px;
+      height: 1200px;
+      margin: auto;
+    }
+
+    svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .compound {
+      position: absolute;
+      background: white;
+      border: 2px solid black;
+      border-radius: 14px;
+      padding: 10px;
+      width: 190px;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.3s;
+      z-index: 5;
+    }
+
+    .compound:hover {
+      background: #f5f5f5;
+      transform: scale(1.04);
+    }
+
+    .compound h3 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .details {
+      display: none;
+      margin-top: 10px;
+      text-align: left;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    /* Compound Positions */
+
+    .citrate {
+      top: 80px;
+      left: 610px;
+    }
+
+    .aconitate {
+      top: 180px;
+      right: 230px;
+    }
+
+    .isocitrate {
+      top: 350px;
+      right: 90px;
+    }
+
+    .akg {
+      top: 560px;
+      right: 110px;
+    }
+
+    .succinyl {
+      bottom: 290px;
+      right: 250px;
+    }
+
+    .succinate {
+      bottom: 120px;
+      left: 610px;
+    }
+
+    .fumarate {
+      bottom: 290px;
+      left: 250px;
+    }
+
+    .malate {
+      top: 560px;
+      left: 110px;
+    }
+
+    .oxaloacetate {
+      top: 350px;
+      left: 90px;
+    }
+
+    .acetyl {
+      position: absolute;
+      top: 500px;
+      left: 540px;
+      width: 300px;
+      background: white;
+      border: 3px solid black;
+      border-radius: 20px;
+      padding: 20px;
+      text-align: center;
+      z-index: 6;
+    }
+
+    .acetyl h2 {
+      margin: 0;
+      font-size: 30px;
+    }
+
+    .enzyme {
+      position: absolute;
+      font-size: 14px;
+      background: white;
+      border: 1px dashed black;
+      padding: 5px 10px;
+      border-radius: 10px;
+    }
+
+    /* Enzyme Labels */
+
+    .e1 { top: 150px; left: 850px; }
+    .e2 { top: 280px; right: 250px; }
+    .e3 { top: 500px; right: 250px; }
+    .e4 { bottom: 250px; right: 420px; }
+    .e5 { bottom: 170px; left: 500px; }
+    .e6 { bottom: 250px; left: 350px; }
+    .e7 { top: 500px; left: 260px; }
+    .e8 { top: 280px; left: 260px; }
+
+    .energy {
+      position: absolute;
+      background: #fff;
+      border: 2px solid black;
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .n1 { top: 420px; right: 350px; }
+    .n2 { top: 650px; right: 350px; }
+    .g1 { bottom: 170px; left: 650px; }
+    .f1 { bottom: 320px; left: 350px; }
+    .n3 { top: 650px; left: 350px; }
+
+    @media (max-width: 1100px) {
+
+      body {
+        overflow-x: scroll;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <h1>Citric Acid Cycle</h1>
+
+  <div class="subtitle">
+    Complete Book Style Circular Pathway
+  </div>
+
+  <div class="container">
+
+    <!-- Circular SVG -->
+
+    <svg width="1400" height="1200">
+
+      <defs>
+
+        <marker id="arrow"
+          markerWidth="12"
+          markerHeight="12"
+          refX="6"
+          refY="3"
+          orient="auto">
+
+          <path d="M0,0 L0,6 L9,3 z"
+            fill="black"/>
+
+        </marker>
+
+      </defs>
+
+      <!-- Main Circle -->
+
+      <circle
+        cx="700"
+        cy="600"
+        r="420"
+        fill="none"
+        stroke="black"
+        stroke-width="4"
+        stroke-dasharray="14 8"/>
+
+      <!-- Direction Arrows -->
+
+      <path d="M700 180 Q1050 250 1120 600"
+        fill="none"
+        stroke="black"
+        stroke-width="3"
+        marker-end="url(#arrow)"/>
+
+      <path d="M1120 600 Q1050 950 700 1020"
+        fill="none"
+        stroke="black"
+        stroke-width="3"
+        marker-end="url(#arrow)"/>
+
+      <path d="M700 1020 Q350 950 280 600"
+        fill="none"
+        stroke="black"
+        stroke-width="3"
+        marker-end="url(#arrow)"/>
+
+      <path d="M280 600 Q350 250 700 180"
+        fill="none"
+        stroke="black"
+        stroke-width="3"
+        marker-end="url(#arrow)"/>
+
+    </svg>
+
+    <!-- Center -->
+
+    <div class="acetyl">
+
       <h2>Acetyl-CoA</h2>
 
       <p>
-        Combines with Oxaloacetate to initiate the Citric Acid Cycle.
+        Acetyl-CoA condenses with Oxaloacetate to begin the Krebs Cycle.
       </p>
+
     </div>
+
+    <!-- Compounds -->
 
     <div class="compound citrate" onclick="toggle(this)">
       <h3>Citrate</h3>
 
       <div class="details">
-        <strong>Enzyme:</strong> Citrate Synthase<br><br>
 
-        <strong>Reaction:</strong><br>
+        Enzyme: Citrate Synthase<br><br>
+
         Oxaloacetate + Acetyl-CoA → Citrate<br><br>
 
-        <strong>Type:</strong><br>
-        Condensation Reaction
+        Irreversible condensation reaction.
+
+      </div>
+    </div>
+
+    <div class="compound aconitate" onclick="toggle(this)">
+      <h3>cis-Aconitate</h3>
+
+      <div class="details">
+
+        Intermediate formed during isomerization.
+
       </div>
     </div>
 
@@ -240,13 +509,11 @@
       <h3>Isocitrate</h3>
 
       <div class="details">
-        <strong>Enzyme:</strong> Aconitase<br><br>
 
-        <strong>Reaction:</strong><br>
-        Citrate ↔ Isocitrate<br><br>
+        Enzyme: Aconitase<br><br>
 
-        <strong>Type:</strong><br>
-        Isomerization
+        Citrate rearranged into Isocitrate.
+
       </div>
     </div>
 
@@ -254,13 +521,11 @@
       <h3>α-Ketoglutarate</h3>
 
       <div class="details">
-        <strong>Enzyme:</strong> Isocitrate Dehydrogenase<br><br>
 
-        <strong>Products:</strong><br>
-        NADH + CO₂<br><br>
+        Enzyme: Isocitrate Dehydrogenase<br><br>
 
-        <strong>Type:</strong><br>
-        Oxidative Decarboxylation
+        NADH + CO₂ produced.
+
       </div>
     </div>
 
@@ -268,10 +533,11 @@
       <h3>Succinyl-CoA</h3>
 
       <div class="details">
-        <strong>Enzyme:</strong> α-Ketoglutarate Dehydrogenase<br><br>
 
-        <strong>Products:</strong><br>
-        NADH + CO₂
+        Enzyme: α-Ketoglutarate Dehydrogenase<br><br>
+
+        NADH + CO₂ formed.
+
       </div>
     </div>
 
@@ -279,10 +545,11 @@
       <h3>Succinate</h3>
 
       <div class="details">
-        <strong>Enzyme:</strong> Succinyl-CoA Synthetase<br><br>
 
-        <strong>Products:</strong><br>
-        GTP Generated
+        Enzyme: Succinyl-CoA Synthetase<br><br>
+
+        GTP generated.
+
       </div>
     </div>
 
@@ -290,10 +557,11 @@
       <h3>Fumarate</h3>
 
       <div class="details">
-        <strong>Enzyme:</strong> Succinate Dehydrogenase<br><br>
 
-        <strong>Products:</strong><br>
-        FADH₂ Generated
+        Enzyme: Succinate Dehydrogenase<br><br>
+
+        FADH₂ generated.
+
       </div>
     </div>
 
@@ -301,10 +569,11 @@
       <h3>Malate</h3>
 
       <div class="details">
-        <strong>Enzyme:</strong> Fumarase<br><br>
 
-        <strong>Reaction:</strong><br>
-        Fumarate + H₂O → Malate
+        Enzyme: Fumarase<br><br>
+
+        Hydration of fumarate.
+
       </div>
     </div>
 
@@ -312,25 +581,67 @@
       <h3>Oxaloacetate</h3>
 
       <div class="details">
-        <strong>Enzyme:</strong> Malate Dehydrogenase<br><br>
 
-        <strong>Products:</strong><br>
-        NADH Generated
+        Enzyme: Malate Dehydrogenase<br><br>
+
+        NADH generated.
+
       </div>
     </div>
 
-  </div>
+    <!-- Enzymes -->
 
-  <div class="yield-box">
+    <div class="enzyme e1">Aconitase</div>
 
-    <h2>Net Yield Per Acetyl-CoA</h2>
+    <div class="enzyme e2">
+      Isocitrate Dehydrogenase
+    </div>
 
-    <ul>
-      <li>3 NADH</li>
-      <li>1 FADH₂</li>
-      <li>1 GTP</li>
-      <li>2 CO₂</li>
-    </ul>
+    <div class="enzyme e3">
+      α-Ketoglutarate Dehydrogenase
+    </div>
+
+    <div class="enzyme e4">
+      Succinyl-CoA Synthetase
+    </div>
+
+    <div class="enzyme e5">
+      Succinate Dehydrogenase
+    </div>
+
+    <div class="enzyme e6">
+      Fumarase
+    </div>
+
+    <div class="enzyme e7">
+      Malate Dehydrogenase
+    </div>
+
+    <div class="enzyme e8">
+      Citrate Synthase
+    </div>
+
+    <!-- Energy -->
+
+    <div class="energy n1">
+      NADH + CO₂
+    </div>
+
+    <div class="energy n2">
+      NADH + CO₂
+    </div>
+
+    <div class="energy g1">
+      GTP
+    </div>
+
+    <div class="energy f1">
+      FADH₂
+    </div>
+
+    <div class="energy n3">
+      NADH
+    </div>
 
   </div>
 
@@ -340,10 +651,16 @@
 
       let details = element.querySelector(".details");
 
-      if (details.style.display === "block") {
+      if(details.style.display === "block") {
+
         details.style.display = "none";
-      } else {
+
+      }
+
+      else {
+
         details.style.display = "block";
+
       }
 
     }
@@ -352,34 +669,4 @@
 
 </body>
 
-</html>
-    </div>
-
-    <div class="info-card">
-      <h2>Functions</h2>
-
-      <ul>
-        <li>ATP Production</li>
-        <li>Oxidation of Acetyl-CoA</li>
-        <li>Provides Intermediates for Biosynthesis</li>
-      </ul>
-    </div>
-
-  </div>
-
-  <script>
-    function toggle(element) {
-
-      let details = element.querySelector(".details");
-
-      if (details.style.display === "block") {
-        details.style.display = "none";
-      } else {
-        details.style.display = "block";
-      }
-
-    }
-  </script>
-
-</body>
 </html>
