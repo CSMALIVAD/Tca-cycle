@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Interactive Citric Acid Cycle</title>
+<title>Professional Citric Acid Cycle</title>
 
 <style>
 
@@ -19,7 +19,7 @@ box-sizing:border-box;
 body{
 font-family:Arial,sans-serif;
 background:
-radial-gradient(circle at top,#1e293b,#020617 70%);
+radial-gradient(circle at top,#1e293b,#020617 75%);
 overflow-x:auto;
 color:white;
 }
@@ -28,7 +28,7 @@ color:white;
 
 h1{
 text-align:center;
-font-size:52px;
+font-size:54px;
 margin-top:20px;
 font-weight:800;
 
@@ -56,8 +56,8 @@ color:#cbd5e1;
 
 .wrapper{
 position:relative;
-width:1700px;
-height:1700px;
+width:1800px;
+height:1800px;
 margin:auto;
 }
 
@@ -75,7 +75,7 @@ overflow:visible;
 .glow-ring{
 filter:
 drop-shadow(
-0 0 30px rgba(59,130,246,0.7)
+0 0 35px rgba(59,130,246,0.7)
 );
 }
 
@@ -83,7 +83,7 @@ drop-shadow(
 
 .flow{
 stroke-dasharray:16;
-animation:move 2s linear infinite;
+animation:move 2.2s linear infinite;
 }
 
 @keyframes move{
@@ -99,19 +99,19 @@ stroke-dashoffset:-32;
 .center{
 position:absolute;
 
-top:710px;
-left:610px;
+top:760px;
+left:650px;
 
-width:480px;
-height:300px;
+width:500px;
+height:320px;
 
-border-radius:40px;
+border-radius:42px;
 
 background:
 linear-gradient(
 145deg,
-rgba(255,255,255,0.15),
-rgba(255,255,255,0.05)
+rgba(255,255,255,0.16),
+rgba(255,255,255,0.06)
 );
 
 backdrop-filter:blur(20px);
@@ -130,13 +130,13 @@ padding:30px;
 
 box-shadow:
 0 0 40px rgba(59,130,246,0.5),
-0 20px 40px rgba(0,0,0,0.35);
+0 20px 45px rgba(0,0,0,0.35);
 
 z-index:20;
 }
 
 .center h2{
-font-size:48px;
+font-size:50px;
 margin-bottom:14px;
 
 background:
@@ -152,7 +152,7 @@ linear-gradient(
 
 .center p{
 font-size:16px;
-line-height:1.7;
+line-height:1.8;
 color:#e2e8f0;
 }
 
@@ -161,8 +161,8 @@ color:#e2e8f0;
 .node{
 position:absolute;
 
-width:220px;
-min-height:100px;
+width:230px;
+min-height:110px;
 
 padding:22px;
 
@@ -172,10 +172,10 @@ justify-content:center;
 
 text-align:center;
 
-font-size:20px;
+font-size:21px;
 font-weight:700;
 
-border-radius:28px;
+border-radius:30px;
 
 cursor:pointer;
 
@@ -187,7 +187,7 @@ border:
 2px solid rgba(255,255,255,0.3);
 
 box-shadow:
-0 10px 24px rgba(0,0,0,0.28),
+0 10px 26px rgba(0,0,0,0.3),
 0 0 18px rgba(255,255,255,0.12);
 
 z-index:5;
@@ -199,11 +199,11 @@ user-select:none;
 
 transform:
 scale(1.08)
-translateY(-6px);
+translateY(-8px);
 
 box-shadow:
 0 0 28px rgba(255,255,255,0.5),
-0 0 50px rgba(59,130,246,0.75);
+0 0 55px rgba(59,130,246,0.75);
 
 }
 
@@ -217,8 +217,8 @@ linear-gradient(
 #15803d
 );
 
-top:40px;
-left:755px;
+top:80px;
+left:785px;
 }
 
 .aconitate{
@@ -229,8 +229,8 @@ linear-gradient(
 #0e7490
 );
 
-top:230px;
-right:170px;
+top:260px;
+right:250px;
 }
 
 .isocitrate{
@@ -241,8 +241,8 @@ linear-gradient(
 #1d4ed8
 );
 
-top:520px;
-right:10px;
+top:540px;
+right:90px;
 }
 
 .akg{
@@ -253,8 +253,8 @@ linear-gradient(
 #6d28d9
 );
 
-top:910px;
-right:40px;
+top:900px;
+right:90px;
 }
 
 .succinyl{
@@ -265,8 +265,8 @@ linear-gradient(
 #be185d
 );
 
-bottom:280px;
-right:240px;
+bottom:330px;
+right:270px;
 }
 
 .succinate{
@@ -277,8 +277,8 @@ linear-gradient(
 #d97706
 );
 
-bottom:40px;
-left:755px;
+bottom:80px;
+left:785px;
 }
 
 .fumarate{
@@ -289,8 +289,8 @@ linear-gradient(
 #b91c1c
 );
 
-bottom:280px;
-left:240px;
+bottom:330px;
+left:270px;
 }
 
 .malate{
@@ -301,8 +301,8 @@ linear-gradient(
 #0f766e
 );
 
-top:910px;
-left:40px;
+top:900px;
+left:90px;
 }
 
 .oxaloacetate{
@@ -313,8 +313,8 @@ linear-gradient(
 #4338ca
 );
 
-top:520px;
-left:10px;
+top:540px;
+left:90px;
 }
 
 /* ENZYMES */
@@ -322,7 +322,7 @@ left:10px;
 .enzyme{
 position:absolute;
 
-padding:10px 14px;
+padding:10px 16px;
 
 border-radius:16px;
 
@@ -340,46 +340,51 @@ box-shadow:
 0 4px 12px rgba(0,0,0,0.2);
 }
 
-/* PERFECT POSITIONS */
+/* PERFECT ALIGNED POSITIONS */
 
 .e1{
-top:200px;
-left:1140px;
+top:210px;
+left:1120px;
 }
 
 .e2{
-top:470px;
-right:290px;
+top:430px;
+right:320px;
 }
 
 .e3{
-top:860px;
-right:340px;
+top:740px;
+right:320px;
 }
 
 .e4{
-bottom:250px;
-right:560px;
+top:1090px;
+right:480px;
 }
 
 .e5{
-bottom:130px;
-left:760px;
+bottom:210px;
+right:670px;
 }
 
 .e6{
-bottom:250px;
-left:470px;
+bottom:210px;
+left:670px;
 }
 
 .e7{
-top:860px;
-left:340px;
+top:1090px;
+left:480px;
 }
 
 .e8{
-top:470px;
-left:290px;
+top:740px;
+left:320px;
+}
+
+.e9{
+top:430px;
+left:320px;
 }
 
 /* ENERGY */
@@ -419,32 +424,32 @@ transform:scale(1);
 }
 
 .n1{
-top:580px;
-right:430px;
+top:630px;
+right:470px;
 background:#2563eb;
 }
 
 .n2{
-top:1020px;
-right:430px;
+top:980px;
+right:540px;
 background:#7c3aed;
 }
 
 .gtp{
-bottom:150px;
-left:940px;
+bottom:180px;
+left:920px;
 background:#f59e0b;
 }
 
 .fadh{
-bottom:360px;
-left:430px;
+bottom:400px;
+left:470px;
 background:#dc2626;
 }
 
 .n3{
-top:1020px;
-left:430px;
+top:980px;
+left:540px;
 background:#0f766e;
 }
 
@@ -453,11 +458,11 @@ background:#0f766e;
 .popup{
 position:absolute;
 
-width:390px;
+width:410px;
 
-padding:28px;
+padding:30px;
 
-border-radius:32px;
+border-radius:34px;
 
 background:
 linear-gradient(
@@ -476,21 +481,21 @@ display:none;
 z-index:100;
 
 box-shadow:
-0 0 30px rgba(59,130,246,0.5),
-0 20px 40px rgba(0,0,0,0.35);
+0 0 35px rgba(59,130,246,0.5),
+0 20px 45px rgba(0,0,0,0.35);
 
 animation:popup 0.35s ease;
 }
 
 .popup h2{
-font-size:30px;
+font-size:32px;
 margin-bottom:16px;
 color:#f8fafc;
 }
 
 .popup p{
-margin-bottom:12px;
-line-height:1.7;
+margin-bottom:14px;
+line-height:1.8;
 font-size:15px;
 color:#e2e8f0;
 }
@@ -499,7 +504,7 @@ color:#e2e8f0;
 
 from{
 opacity:0;
-transform:scale(0.8);
+transform:scale(0.82);
 }
 
 to{
@@ -511,7 +516,7 @@ transform:scale(1);
 
 /* MOBILE */
 
-@media(max-width:1700px){
+@media(max-width:1800px){
 
 body{
 overflow-x:auto;
@@ -528,14 +533,14 @@ overflow-x:auto;
 <h1>Citric Acid Cycle</h1>
 
 <div class="subtitle">
-Interactive Krebs Cycle • Professional Book Style
+Professional Interactive Krebs Cycle • Book Algorithm Layout
 </div>
 
 <div class="wrapper">
 
 <!-- SVG -->
 
-<svg width="1700" height="1700">
+<svg width="1800" height="1800">
 
 <defs>
 
@@ -557,9 +562,9 @@ fill="white"/>
 
 <circle
 class="glow-ring"
-cx="850"
-cy="850"
-r="620"
+cx="900"
+cy="900"
+r="670"
 fill="none"
 stroke="rgba(255,255,255,0.85)"
 stroke-width="5"
@@ -569,7 +574,7 @@ stroke-dasharray="18 10"
 <!-- FLOW -->
 
 <path class="flow"
-d="M850 230 Q1350 330 1470 850"
+d="M900 230 Q1450 360 1570 900"
 fill="none"
 stroke="white"
 stroke-width="5"
@@ -577,7 +582,7 @@ marker-end="url(#arrow)"
 />
 
 <path class="flow"
-d="M1470 850 Q1360 1360 850 1470"
+d="M1570 900 Q1450 1450 900 1570"
 fill="none"
 stroke="white"
 stroke-width="5"
@@ -585,7 +590,7 @@ marker-end="url(#arrow)"
 />
 
 <path class="flow"
-d="M850 1470 Q340 1360 230 850"
+d="M900 1570 Q350 1450 230 900"
 fill="none"
 stroke="white"
 stroke-width="5"
@@ -593,7 +598,7 @@ marker-end="url(#arrow)"
 />
 
 <path class="flow"
-d="M230 850 Q340 330 850 230"
+d="M230 900 Q350 360 900 230"
 fill="none"
 stroke="white"
 stroke-width="5"
@@ -617,110 +622,92 @@ Condenses with Oxaloacetate to initiate the Citric Acid Cycle and ATP generation
 <!-- NODES -->
 
 <div class="node citrate"
-onclick="openPopup(
-event,
+onclick="openPopup(event,
 'Citrate',
 'Citrate Synthase',
 'Condensation Reaction',
 'Citrate formed',
-'First irreversible step of TCA cycle.'
-)">
+'First irreversible step of TCA cycle.')">
 Citrate
 </div>
 
 <div class="node aconitate"
-onclick="openPopup(
-event,
+onclick="openPopup(event,
 'cis-Aconitate',
 'Aconitase',
 'Intermediate Rearrangement',
 'Intermediate molecule',
-'Temporary dehydration intermediate.'
-)">
+'Temporary dehydration intermediate.')">
 cis-Aconitate
 </div>
 
 <div class="node isocitrate"
-onclick="openPopup(
-event,
+onclick="openPopup(event,
 'Isocitrate',
 'Aconitase',
 'Isomerization',
 'Isocitrate formed',
-'Prepares substrate for oxidation.'
-)">
+'Prepares substrate for oxidation.')">
 Isocitrate
 </div>
 
 <div class="node akg"
-onclick="openPopup(
-event,
+onclick="openPopup(event,
 'α-Ketoglutarate',
 'Isocitrate Dehydrogenase',
 'Oxidative Decarboxylation',
 'NADH + CO₂',
-'Major regulatory step.'
-)">
+'Major regulatory step.')">
 α-Ketoglutarate
 </div>
 
 <div class="node succinyl"
-onclick="openPopup(
-event,
+onclick="openPopup(event,
 'Succinyl-CoA',
 'α-Ketoglutarate Dehydrogenase',
 'Oxidative Decarboxylation',
 'NADH + CO₂',
-'Contains high-energy thioester bond.'
-)">
+'Contains high-energy thioester bond.')">
 Succinyl-CoA
 </div>
 
 <div class="node succinate"
-onclick="openPopup(
-event,
+onclick="openPopup(event,
 'Succinate',
 'Succinyl-CoA Synthetase',
 'Substrate Level Phosphorylation',
 'GTP generated',
-'Only direct ATP/GTP producing step.'
-)">
+'Only direct ATP/GTP producing step.')">
 Succinate
 </div>
 
 <div class="node fumarate"
-onclick="openPopup(
-event,
+onclick="openPopup(event,
 'Fumarate',
 'Succinate Dehydrogenase',
 'Oxidation',
 'FADH₂ generated',
-'Linked directly to ETC Complex II.'
-)">
+'Linked directly to ETC Complex II.')">
 Fumarate
 </div>
 
 <div class="node malate"
-onclick="openPopup(
-event,
+onclick="openPopup(event,
 'Malate',
 'Fumarase',
 'Hydration',
 'Malate formed',
-'Water added across double bond.'
-)">
+'Water added across double bond.')">
 Malate
 </div>
 
 <div class="node oxaloacetate"
-onclick="openPopup(
-event,
+onclick="openPopup(event,
 'Oxaloacetate',
 'Malate Dehydrogenase',
 'Oxidation',
 'NADH generated',
-'Regenerated for next TCA cycle.'
-)">
+'Regenerated for next TCA cycle.')">
 Oxaloacetate
 </div>
 
@@ -756,6 +743,10 @@ Malate Dehydrogenase
 
 <div class="enzyme e8">
 Citrate Synthase
+</div>
+
+<div class="enzyme e9">
+Aconitase
 </div>
 
 <!-- ENERGY -->
@@ -850,8 +841,8 @@ popup.style.display = "block";
 let x = event.pageX + 25;
 let y = event.pageY - 40;
 
-const popupWidth = 390;
-const popupHeight = 330;
+const popupWidth = 410;
+const popupHeight = 350;
 
 if(
 x + popupWidth >
