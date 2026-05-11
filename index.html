@@ -4,177 +4,201 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Citric Acid Cycle - BioChamp</title>
+
+  <title>Citric Acid Cycle</title>
 
   <style>
-    * {
+    body {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      background: linear-gradient(135deg, #020617, #0f172a);
-      color: white;
+      background: #ffffff;
       font-family: Arial, sans-serif;
       overflow-x: hidden;
-      min-height: 100vh;
-      padding: 20px;
     }
 
     h1 {
       text-align: center;
-      color: cyan;
-      margin-top: 10px;
-      font-size: 40px;
+      margin-top: 20px;
+      font-size: 38px;
+      color: #000;
     }
 
     .subtitle {
       text-align: center;
-      color: #cbd5e1;
-      margin-top: 10px;
-      margin-bottom: 30px;
-      font-size: 18px;
+      color: #444;
+      margin-bottom: 20px;
     }
 
     .cycle-container {
       position: relative;
-      width: 100%;
-      max-width: 900px;
+      width: 900px;
       height: 900px;
       margin: auto;
     }
 
+    .circle {
+      position: absolute;
+      width: 650px;
+      height: 650px;
+      border: 4px solid #111;
+      border-radius: 50%;
+      top: 120px;
+      left: 125px;
+    }
+
+    .compound {
+      position: absolute;
+      width: 170px;
+      background: #fff;
+      border: 2px solid #000;
+      border-radius: 14px;
+      padding: 10px;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    .compound:hover {
+      transform: scale(1.05);
+      background: #f2f2f2;
+    }
+
+    .compound h3 {
+      margin: 0;
+      font-size: 18px;
+      color: #000;
+    }
+
+    .details {
+      display: none;
+      margin-top: 10px;
+      text-align: left;
+      font-size: 13px;
+      line-height: 1.5;
+      color: #222;
+    }
+
+    .details strong {
+      color: #000;
+    }
+
+    /* Circular Placement */
+
+    .citrate {
+      top: 40px;
+      left: 365px;
+    }
+
+    .isocitrate {
+      top: 130px;
+      right: 70px;
+    }
+
+    .akg {
+      top: 340px;
+      right: 10px;
+    }
+
+    .succinyl {
+      bottom: 170px;
+      right: 70px;
+    }
+
+    .succinate {
+      bottom: 50px;
+      left: 365px;
+    }
+
+    .fumarate {
+      bottom: 170px;
+      left: 70px;
+    }
+
+    .malate {
+      top: 340px;
+      left: 10px;
+    }
+
+    .oxaloacetate {
+      top: 130px;
+      left: 70px;
+    }
+
     .center-box {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: rgba(15, 23, 42, 0.95);
-      border: 3px solid cyan;
-      border-radius: 25px;
-      padding: 25px;
-      width: 230px;
+      top: 360px;
+      left: 325px;
+      width: 250px;
+      padding: 20px;
+      border: 3px solid #000;
+      border-radius: 20px;
       text-align: center;
-      box-shadow: 0 0 25px cyan;
-      z-index: 5;
+      background: #fff;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
 
     .center-box h2 {
-      color: cyan;
+      margin: 0;
       font-size: 28px;
     }
 
     .center-box p {
       margin-top: 10px;
-      color: #cbd5e1;
-      font-size: 15px;
-    }
-
-    .step {
-      position: absolute;
-      width: 180px;
-      background: rgba(30, 41, 59, 0.92);
-      border: 2px solid #22d3ee;
-      border-radius: 20px;
-      padding: 15px;
-      cursor: pointer;
-      transition: 0.35s;
-      text-align: center;
-      box-shadow: 0 0 15px rgba(34, 211, 238, 0.3);
-    }
-
-    .step:hover {
-      transform: scale(1.08);
-      background: #0891b2;
-      box-shadow: 0 0 25px cyan;
-    }
-
-    .step h3 {
-      color: cyan;
-      margin-bottom: 8px;
-      font-size: 20px;
-    }
-
-    .details {
-      display: none;
-      margin-top: 12px;
-      text-align: left;
       font-size: 14px;
-      color: #e2e8f0;
-      line-height: 1.5;
-    }
-
-    .details strong {
-      color: #67e8f9;
+      color: #333;
     }
 
     .yield-box {
-      margin-top: 50px;
       max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
-    .info-card {
-      background: rgba(15, 23, 42, 0.95);
-      border: 2px solid cyan;
-      border-radius: 20px;
+      margin: 40px auto;
+      border: 2px solid #000;
       padding: 20px;
-      box-shadow: 0 0 15px rgba(34, 211, 238, 0.25);
+      border-radius: 18px;
+      background: #fafafa;
     }
 
-    .info-card h2 {
-      color: cyan;
-      margin-bottom: 15px;
+    .yield-box h2 {
+      margin-top: 0;
     }
 
-    .info-card ul {
-      padding-left: 20px;
+    .yield-box ul {
       line-height: 1.8;
     }
 
-    /* Circular Positions */
-
-    .s1 { top: 0%; left: 40%; }
-    .s2 { top: 12%; right: 5%; }
-    .s3 { top: 38%; right: 0%; }
-    .s4 { bottom: 20%; right: 10%; }
-    .s5 { bottom: 0%; left: 40%; }
-    .s6 { bottom: 20%; left: 10%; }
-    .s7 { top: 38%; left: 0%; }
-    .s8 { top: 12%; left: 5%; }
-
-    @media (max-width: 900px) {
+    @media (max-width: 950px) {
 
       .cycle-container {
+        width: 100%;
         height: auto;
         display: flex;
         flex-direction: column;
         align-items: center;
       }
 
-      .center-box {
-        position: relative;
-        top: auto;
-        left: auto;
-        transform: none;
-        margin-bottom: 20px;
+      .circle {
+        display: none;
       }
 
-      .step {
-        position: relative;
-        width: 95%;
+      .compound {
+        position: relative !important;
         margin: 10px 0;
-        top: auto !important;
-        bottom: auto !important;
         left: auto !important;
         right: auto !important;
+        top: auto !important;
+        bottom: auto !important;
+        width: 90%;
+      }
+
+      .center-box {
+        position: relative;
+        left: auto;
+        top: auto;
+        margin: 20px 0;
+        width: 90%;
       }
     }
+
   </style>
 </head>
 
@@ -183,19 +207,22 @@
   <h1>Citric Acid Cycle</h1>
 
   <div class="subtitle">
-    Interactive TCA / Krebs Cycle • Tap Any Step
+    Krebs Cycle / TCA Cycle
   </div>
 
   <div class="cycle-container">
 
+    <div class="circle"></div>
+
     <div class="center-box">
       <h2>Acetyl-CoA</h2>
+
       <p>
-        Combines with Oxaloacetate to begin the Citric Acid Cycle.
+        Combines with Oxaloacetate to initiate the Citric Acid Cycle.
       </p>
     </div>
 
-    <div class="step s1" onclick="toggle(this)">
+    <div class="compound citrate" onclick="toggle(this)">
       <h3>Citrate</h3>
 
       <div class="details">
@@ -205,14 +232,11 @@
         Oxaloacetate + Acetyl-CoA → Citrate<br><br>
 
         <strong>Type:</strong><br>
-        Condensation Reaction<br><br>
-
-        <strong>Importance:</strong><br>
-        First irreversible step of TCA cycle.
+        Condensation Reaction
       </div>
     </div>
 
-    <div class="step s2" onclick="toggle(this)">
+    <div class="compound isocitrate" onclick="toggle(this)">
       <h3>Isocitrate</h3>
 
       <div class="details">
@@ -222,14 +246,11 @@
         Citrate ↔ Isocitrate<br><br>
 
         <strong>Type:</strong><br>
-        Isomerization<br><br>
-
-        <strong>Importance:</strong><br>
-        Rearranges hydroxyl group for oxidation.
+        Isomerization
       </div>
     </div>
 
-    <div class="step s3" onclick="toggle(this)">
+    <div class="compound akg" onclick="toggle(this)">
       <h3>α-Ketoglutarate</h3>
 
       <div class="details">
@@ -239,80 +260,62 @@
         NADH + CO₂<br><br>
 
         <strong>Type:</strong><br>
-        Oxidative Decarboxylation<br><br>
-
-        <strong>Importance:</strong><br>
-        Major regulatory step.
+        Oxidative Decarboxylation
       </div>
     </div>
 
-    <div class="step s4" onclick="toggle(this)">
+    <div class="compound succinyl" onclick="toggle(this)">
       <h3>Succinyl-CoA</h3>
 
       <div class="details">
         <strong>Enzyme:</strong> α-Ketoglutarate Dehydrogenase<br><br>
 
         <strong>Products:</strong><br>
-        NADH + CO₂<br><br>
-
-        <strong>Importance:</strong><br>
-        High-energy thioester compound.
+        NADH + CO₂
       </div>
     </div>
 
-    <div class="step s5" onclick="toggle(this)">
+    <div class="compound succinate" onclick="toggle(this)">
       <h3>Succinate</h3>
 
       <div class="details">
         <strong>Enzyme:</strong> Succinyl-CoA Synthetase<br><br>
 
         <strong>Products:</strong><br>
-        GTP formed<br><br>
-
-        <strong>Type:</strong><br>
-        Substrate-level phosphorylation.
+        GTP Generated
       </div>
     </div>
 
-    <div class="step s6" onclick="toggle(this)">
+    <div class="compound fumarate" onclick="toggle(this)">
       <h3>Fumarate</h3>
 
       <div class="details">
         <strong>Enzyme:</strong> Succinate Dehydrogenase<br><br>
 
         <strong>Products:</strong><br>
-        FADH₂ formed<br><br>
-
-        <strong>Location:</strong><br>
-        Inner mitochondrial membrane.
+        FADH₂ Generated
       </div>
     </div>
 
-    <div class="step s7" onclick="toggle(this)">
+    <div class="compound malate" onclick="toggle(this)">
       <h3>Malate</h3>
 
       <div class="details">
         <strong>Enzyme:</strong> Fumarase<br><br>
 
         <strong>Reaction:</strong><br>
-        Fumarate + H₂O → Malate<br><br>
-
-        <strong>Type:</strong><br>
-        Hydration reaction.
+        Fumarate + H₂O → Malate
       </div>
     </div>
 
-    <div class="step s8" onclick="toggle(this)">
+    <div class="compound oxaloacetate" onclick="toggle(this)">
       <h3>Oxaloacetate</h3>
 
       <div class="details">
         <strong>Enzyme:</strong> Malate Dehydrogenase<br><br>
 
         <strong>Products:</strong><br>
-        NADH formed<br><br>
-
-        <strong>Importance:</strong><br>
-        Regenerates Oxaloacetate for next cycle.
+        NADH Generated
       </div>
     </div>
 
@@ -320,24 +323,36 @@
 
   <div class="yield-box">
 
-    <div class="info-card">
-      <h2>Net Yield</h2>
+    <h2>Net Yield Per Acetyl-CoA</h2>
 
-      <ul>
-        <li>3 NADH</li>
-        <li>1 FADH₂</li>
-        <li>1 GTP</li>
-        <li>2 CO₂</li>
-      </ul>
-    </div>
+    <ul>
+      <li>3 NADH</li>
+      <li>1 FADH₂</li>
+      <li>1 GTP</li>
+      <li>2 CO₂</li>
+    </ul>
 
-    <div class="info-card">
-      <h2>Location</h2>
+  </div>
 
-      <ul>
-        <li>Mitochondrial Matrix</li>
-        <li>Succinate Dehydrogenase in Inner Membrane</li>
-      </ul>
+  <script>
+
+    function toggle(element) {
+
+      let details = element.querySelector(".details");
+
+      if (details.style.display === "block") {
+        details.style.display = "none";
+      } else {
+        details.style.display = "block";
+      }
+
+    }
+
+  </script>
+
+</body>
+
+</html>
     </div>
 
     <div class="info-card">
